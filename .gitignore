@@ -1,0 +1,14 @@
+# Environment files
+.env
+.env.*
+*.env
+test.env
+
+# Keep safe templates tracked
+!.env.example
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
