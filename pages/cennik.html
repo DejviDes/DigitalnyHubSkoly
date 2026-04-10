@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digitálny hub školy | Cenník</title>
+    <meta name="description" content="Návrh balíkov pre školy." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="../index.html" class="brand" aria-label="Digitálny hub školy"
+          ><span class="brand-mark">DH</span
+          ><span class="brand-text">Digitálny hub školy</span></a
+        >
+        <nav class="main-nav" aria-label="Hlavná navigácia">
+          <a href="../index.html">Domov</a><a href="riesenie.html">Riešenie</a
+          ><a href="moduly.html">Moduly</a
+          ><a href="vyhody-pre-vas.html">Výhody pre vás</a
+          ><a href="cennik.html">Cenník</a><a href="kontakt.html">Kontakt</a>
+        </nav>
+        <a class="btn btn-small" href="kontakt.html">Požiadať o demo</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section reveal section-compact">
+        <div class="container breadcrumb-wrap">
+          <p class="breadcrumb"><a href="../index.html">Domov</a> / Cenník</p>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="container">
+          <h1>Návrh balíkov</h1>
+          <p class="section-lead">
+            Orientačné sumy nižšie vám pomôžu odhadnúť rozpočet. Finálna cena sa
+            nastaví podľa počtu používateľov, rozsahu modulov a náročnosti
+            migrácie dát.
+          </p>
+          <p class="muted">
+            Ceny sú orientačné, uvedené bez DPH a platia pre ročné predplatné.
+          </p>
+          <div class="pricing-grid" id="pricing-selector">
+            <article
+              class="price-card price-selectable"
+              data-plan="starter"
+              tabindex="0"
+              role="button"
+              aria-pressed="false"
+            >
+              <h3 class="blue-heading pricing-title">
+                <span class="title-icon" aria-hidden="true"
+                  ><svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 18h16" />
+                    <path d="M7 18v-6" />
+                    <path d="M12 18V8" />
+                    <path d="M17 18v-3" /></svg></span
+                >Starter
+              </h3>
+              <p class="price-note">Pre menšie školy</p>
+              <p class="price-amount">od 149 € / mesiac</p>
+              <p class="price-meta">+ jednorazové nasadenie od 790 €</p>
+              <ul>
+                <li>Základná agenda a úlohy</li>
+                <li>Schvaľovacie workflowy</li>
+                <li>Základné reporty</li>
+              </ul>
+              <a href="kontakt.html" class="btn btn-ghost">Chcem konzultáciu</a>
+            </article>
+            <article
+              class="price-card price-selectable is-selected"
+              data-plan="standard"
+              tabindex="0"
+              role="button"
+              aria-pressed="true"
+            >
+              <h3 class="blue-heading pricing-title">
+                <span class="title-icon" aria-hidden="true"
+                  ><svg viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="5" width="16" height="6" rx="2" />
+                    <rect x="4" y="13" width="10" height="6" rx="2" />
+                    <path d="M17 16l2 2 3-3" /></svg></span
+                >Standard
+              </h3>
+              <p class="price-note">Najčastejšia voľba</p>
+              <p class="price-amount">od 329 € / mesiac</p>
+              <p class="price-meta">+ jednorazové nasadenie od 1 490 €</p>
+              <ul>
+                <li>Všetko zo Starter</li>
+                <li>Ekonomické a personálne moduly</li>
+                <li>Rozšírené notifikácie a prehľady</li>
+              </ul>
+              <a href="kontakt.html" class="btn">Chcem demo</a>
+            </article>
+            <article
+              class="price-card price-selectable"
+              data-plan="premium"
+              tabindex="0"
+              role="button"
+              aria-pressed="false"
+            >
+              <h3 class="blue-heading pricing-title">
+                <span class="title-icon" aria-hidden="true"
+                  ><svg viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 3l2.6 5.3 5.9.9-4.3 4.2 1 5.9L12 16.6 6.8 19.3l1-5.9L3.5 9.2l5.9-.9z"
+                    /></svg></span
+                >Premium
+              </h3>
+              <p class="price-note">Pre väčšie organizácie</p>
+              <p class="price-amount">od 590 € / mesiac</p>
+              <p class="price-meta">+ jednorazové nasadenie od 2 490 €</p>
+              <ul>
+                <li>Kompletné moduly</li>
+                <li>Rozšírená podpora a SLA</li>
+                <li>Individuálne úpravy</li>
+              </ul>
+              <a href="kontakt.html" class="btn btn-ghost"
+                >Kontaktovať predaj</a
+              >
+            </article>
+          </div>
+
+          <div class="plan-details-stack" id="pricing-details">
+            <article
+              class="card plan-detail reveal"
+              data-plan-detail="starter"
+              hidden
+            >
+              <div>
+                <p class="eyebrow">Starter v praxi</p>
+                <h2 class="blue-heading">
+                  Keď škola potrebuje poriadok rýchlo a s nízkym rozpočtom
+                </h2>
+                <p>
+                  Starter sa oplatí škole, ktorá chce nahradiť e-maily a tabuľky
+                  jednotným miestom pre úlohy, schvaľovanie a základnú
+                  evidenciu. Je to vhodný prvý krok, ak tím ešte len zavádza
+                  digitálne procesy a potrebuje jednoduchý štart bez veľkej
+                  zmeny návykov.
+                </p>
+                <p>
+                  Neobsahuje pokročilé ekonomické prepojenia, rozšírenú SLA
+                  podporu ani individuálne úpravy na mieru. Dôvod je jednoduchý:
+                  tento balík drží cenu nízko a sústreďuje sa na najdôležitejšie
+                  základy, ktoré škola využije okamžite.
+                </p>
+                <p>
+                  Ak však viete zvládnuť aspoň Standard, z pohľadu návratnosti
+                  sa väčšinou oplatí ísť vyššie, pretože získate širšie
+                  prepojenie agendy a menej ručnej práce naprieč oddeleniami.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="card plan-detail reveal plan-detail-recommended"
+              data-plan-detail="standard"
+            >
+              <div>
+                <p class="eyebrow">Standard v praxi</p>
+                <h2 class="blue-heading">Odporúčaná voľba pre väčšinu škôl</h2>
+                <p>
+                  Standard je najlepší pomer ceny a prínosu. Oplatí sa v
+                  momente, keď škola rieši nielen úlohy, ale aj personálnu a
+                  ekonomickú agendu, interné schvaľovanie a potrebuje jednotné
+                  reporty pre vedenie.
+                </p>
+                <p>
+                  Balík umožní prepojiť procesy, ktoré dnes bežia oddelene:
+                  napríklad žiadanky, objednávky, fakturáciu, absencie alebo
+                  schvaľovanie pracovných ciest. Výsledkom je menej duplicít,
+                  menej chýb a rýchlejšie rozhodovanie.
+                </p>
+                <p>
+                  Neobsahuje najvyššiu úroveň SLA a rozsiahle custom riešenia na
+                  mieru ako Premium. Ak však škola vie fungovať na
+                  štandardizovanom nastavení, práve Standard je vo väčšine
+                  prípadov najrozumnejšia voľba, lebo pokryje kľúčové potreby
+                  bez zbytočne vysokej ceny.
+                </p>
+              </div>
+            </article>
+
+            <article
+              class="card plan-detail reveal"
+              data-plan-detail="premium"
+              hidden
+            >
+              <div>
+                <p class="eyebrow">Premium v praxi</p>
+                <h2 class="blue-heading">
+                  Keď potrebujete plný rozsah a servis na mieru
+                </h2>
+                <p>
+                  Premium sa oplatí väčším školám alebo zriaďovateľom, ktorí
+                  potrebujú pokročilé prepojenia, individuálne úpravy procesov,
+                  rozšírené SLA a strategickú podporu pri rozvoji platformy.
+                </p>
+                <p>
+                  Tento balík je vhodný, ak máte interné kapacity na riadenie
+                  zmien, požadujete nadštandardnú dostupnosť podpory a plánujete
+                  platformu rozvíjať ako kľúčový prevádzkový systém.
+                </p>
+                <p>
+                  Neoplatí sa tam, kde je priorita len základná digitalizácia a
+                  škola nevyužije individuálne úpravy. V takom prípade je
+                  Standard ekonomicky výhodnejší a zvyčajne úplne postačujúci.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>Digitálny hub školy • Cenník</p>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>

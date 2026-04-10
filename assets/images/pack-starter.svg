@@ -1,0 +1,51 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Starter pack icons visual</title>
+  <desc id="desc">Icon visual showing tasks, meetings, and approvals connected in one workflow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="90" y1="60" x2="1510" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF4FF"/>
+      <stop offset="1" stop-color="#FDFEFF"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="390" y1="470" x2="1210" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F78E8"/>
+      <stop offset="1" stop-color="#1398A3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="24" y="24" width="1552" height="852" rx="42" fill="url(#bg)"/>
+
+  <rect x="86" y="86" width="1428" height="728" rx="34" fill="#FFFFFF" fill-opacity="0.9" stroke="#C8DAF4"/>
+  <rect x="120" y="120" width="260" height="54" rx="27" fill="#2F78E8"/>
+  <rect x="150" y="141" width="200" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.9"/>
+
+  <path d="M470 460H1128" stroke="#8AB4EF" stroke-width="10" stroke-linecap="round" stroke-dasharray="14 16"/>
+
+  <g>
+    <circle cx="420" cy="460" r="132" fill="#F1F8FF" stroke="#BED6F7" stroke-width="3"/>
+    <rect x="354" y="392" width="132" height="136" rx="20" fill="#FFFFFF" stroke="#BCD5F5" stroke-width="3"/>
+    <path d="M386 430H454" stroke="#5B93E8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M386 462H454" stroke="#5B93E8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M386 494H432" stroke="#5B93E8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M358 340L380 360L422 320" stroke="#2F78E8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g>
+    <circle cx="800" cy="460" r="154" fill="#EEF8F7" stroke="#BEE9E5" stroke-width="3"/>
+    <rect x="716" y="398" width="168" height="122" rx="28" fill="#FFFFFF" stroke="#BCE3E0" stroke-width="3"/>
+    <path d="M760 520V550" stroke="#4EAFA7" stroke-width="9" stroke-linecap="round"/>
+    <path d="M840 520V550" stroke="#4EAFA7" stroke-width="9" stroke-linecap="round"/>
+    <path d="M730 430H870" stroke="#4EAFA7" stroke-width="8" stroke-linecap="round"/>
+    <path d="M738 470H862" stroke="#9FCFCC" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g>
+    <circle cx="1180" cy="460" r="132" fill="#F1F8FF" stroke="#BED6F7" stroke-width="3"/>
+    <rect x="1112" y="402" width="136" height="116" rx="20" fill="#FFFFFF" stroke="#BCD5F5" stroke-width="3"/>
+    <path d="M1146 460L1172 486L1216 434" stroke="#2F78E8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="1180" cy="380" r="24" fill="#2F78E8" fill-opacity="0.14"/>
+    <path d="M1170 380H1190" stroke="#2F78E8" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <rect x="390" y="636" width="820" height="96" rx="48" fill="url(#chip)"/>
+  <rect x="468" y="676" width="664" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.84"/>
+</svg>
