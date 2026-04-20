@@ -1,20 +1,35 @@
 const revealNodes = document.querySelectorAll(".reveal");
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.15,
-  },
-);
+if (prefersReducedMotion) {
+  revealNodes.forEach((node) => {
+    node.classList.add("visible");
+    node.style.transitionDelay = "0s";
+  });
+} else {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15,
+    },
+  );
 
-revealNodes.forEach((node) => observer.observe(node));
+  revealNodes.forEach((node) => observer.observe(node));
+
+  revealNodes.forEach((node, index) => {
+    const stagger = Math.min(index * 0.035, 0.35);
+    node.style.transitionDelay = `${stagger}s`;
+  });
+}
 
 const currentPath = window.location.pathname.split("/").pop() || "index.html";
 const navLinks = document.querySelectorAll(".main-nav a");
@@ -68,6 +83,15 @@ const siteHeader = document.querySelector(".site-header");
 const navWrap = document.querySelector(".nav-wrap");
 const mainNav = document.querySelector(".main-nav");
 const navCta = document.querySelector(".nav-wrap .btn-small");
+
+if (siteHeader) {
+  const syncHeaderScrolledState = () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 14);
+  };
+
+  syncHeaderScrolledState();
+  window.addEventListener("scroll", syncHeaderScrolledState, { passive: true });
+}
 
 if (siteHeader && navWrap && mainNav) {
   if (!mainNav.id) {
@@ -271,6 +295,30 @@ if (contactForm) {
       });
 
       if (!response.ok) {
+        let errorPayload = null;
+        try {
+          errorPayload = await response.json();
+        } catch {
+          errorPayload = null;
+        }
+
+        if (response.status === 429 || errorPayload?.code === "RATE_LIMITED") {
+          const retryAfterSec = Number(errorPayload?.retryAfterSec || 0);
+          const retryAfterMin =
+            retryAfterSec > 0
+              ? Math.max(1, Math.ceil(retryAfterSec / 60))
+              : null;
+          const retryMessage = retryAfterMin
+            ? ` Skúste to prosím znova približne o ${retryAfterMin} min.`
+            : " Skúste to prosím znova neskôr.";
+
+          setStatus(
+            `Za posledných 30 minút už boli odoslané 2 žiadosti. Aby sme predišli spamu, ďalšie odoslanie je dočasne obmedzené.${retryMessage}`,
+            "is-error",
+          );
+          return;
+        }
+
         throw new Error("Request failed");
       }
 
@@ -525,4 +573,42 @@ if (lightboxTriggers.length > 0) {
       updateZoom(1);
     }
   });
+}
+
+const tiltCards = document.querySelectorAll(
+  ".lift-card, .module, .price-card, .home-app-shot",
+);
+
+if (tiltCards.length > 0 && window.matchMedia("(hover: hover)").matches) {
+  if (prefersReducedMotion) {
+    // Respect accessibility preference by skipping pointer-based tilt.
+  } else {
+    const maxTilt = 6;
+
+    tiltCards.forEach((card) => {
+      card.style.transformStyle = "preserve-3d";
+
+      const resetCard = () => {
+        card.style.transform = "";
+      };
+
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        if (!rect.width || !rect.height) {
+          return;
+        }
+
+        const relativeX = (event.clientX - rect.left) / rect.width;
+        const relativeY = (event.clientY - rect.top) / rect.height;
+
+        const rotateY = (relativeX - 0.5) * maxTilt;
+        const rotateX = (0.5 - relativeY) * maxTilt;
+
+        card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
+      });
+
+      card.addEventListener("pointerleave", resetCard);
+      card.addEventListener("blur", resetCard, true);
+    });
+  }
 }

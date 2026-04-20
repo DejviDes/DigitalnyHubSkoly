@@ -8,6 +8,10 @@ const contactFromEmail = process.env.CONTACT_FROM_EMAIL;
 const hasResendConfig = Boolean(resendApiKey && resendFromEmail);
 const resend = hasResendConfig ? new Resend(resendApiKey) : null;
 
+const RATE_LIMIT_WINDOW_MS = 30 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 2;
+const submissionsByPerson = new Map();
+
 const sendViaResend = async ({
   safeSchoolName,
   safeContactName,
@@ -63,6 +67,50 @@ const getBody = (req) => {
   return req.body;
 };
 
+const getClientIp = (req) => {
+  const forwardedFor = req.headers["x-forwarded-for"];
+  if (typeof forwardedFor === "string" && forwardedFor.trim()) {
+    return forwardedFor.split(",")[0].trim();
+  }
+
+  const maybeIp = req.headers["x-real-ip"];
+  if (typeof maybeIp === "string" && maybeIp.trim()) {
+    return maybeIp.trim();
+  }
+
+  return "unknown-ip";
+};
+
+const getRateLimitKey = ({ email, ip }) => {
+  const normalizedEmail = String(email || "")
+    .trim()
+    .toLowerCase();
+  if (normalizedEmail) {
+    return `email:${normalizedEmail}`;
+  }
+  return `ip:${ip}`;
+};
+
+const checkAndTrackRateLimit = (key, nowMs) => {
+  const existingTimestamps = submissionsByPerson.get(key) || [];
+  const recentTimestamps = existingTimestamps.filter(
+    (timestamp) => nowMs - timestamp < RATE_LIMIT_WINDOW_MS,
+  );
+
+  if (recentTimestamps.length >= RATE_LIMIT_MAX_REQUESTS) {
+    const oldestWithinWindow = recentTimestamps[0];
+    const retryAfterMs = RATE_LIMIT_WINDOW_MS - (nowMs - oldestWithinWindow);
+    return {
+      isLimited: true,
+      retryAfterSec: Math.max(1, Math.ceil(retryAfterMs / 1000)),
+    };
+  }
+
+  recentTimestamps.push(nowMs);
+  submissionsByPerson.set(key, recentTimestamps);
+  return { isLimited: false };
+};
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
@@ -91,6 +139,20 @@ export default async function handler(req, res) {
   const safeContactName = String(contactName).trim();
   const safeEmail = String(email).trim();
   const safeChallenge = String(challenge).trim();
+  const rateLimitKey = getRateLimitKey({
+    email: safeEmail,
+    ip: getClientIp(req),
+  });
+  const rateLimitState = checkAndTrackRateLimit(rateLimitKey, Date.now());
+
+  if (rateLimitState.isLimited) {
+    return res.status(429).json({
+      ok: false,
+      error: "Too many submissions",
+      code: "RATE_LIMITED",
+      retryAfterSec: rateLimitState.retryAfterSec,
+    });
+  }
 
   try {
     await sendViaResend({

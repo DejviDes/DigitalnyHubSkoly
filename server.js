@@ -23,6 +23,10 @@ if (!contactToEmail) {
 const hasResendConfig = Boolean(resendApiKey && resendFromEmail);
 const resend = hasResendConfig ? new Resend(resendApiKey) : null;
 
+const RATE_LIMIT_WINDOW_MS = 30 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 2;
+const submissionsByPerson = new Map();
+
 if (!hasResendConfig) {
   // Keep startup warning explicit so configuration issues are visible immediately.
   console.warn(
@@ -72,6 +76,36 @@ const sendViaResend = async ({
   }
 };
 
+const getRateLimitKey = ({ email, ip }) => {
+  const normalizedEmail = String(email || "")
+    .trim()
+    .toLowerCase();
+  if (normalizedEmail) {
+    return `email:${normalizedEmail}`;
+  }
+  return `ip:${ip || "unknown-ip"}`;
+};
+
+const checkAndTrackRateLimit = (key, nowMs) => {
+  const existingTimestamps = submissionsByPerson.get(key) || [];
+  const recentTimestamps = existingTimestamps.filter(
+    (timestamp) => nowMs - timestamp < RATE_LIMIT_WINDOW_MS,
+  );
+
+  if (recentTimestamps.length >= RATE_LIMIT_MAX_REQUESTS) {
+    const oldestWithinWindow = recentTimestamps[0];
+    const retryAfterMs = RATE_LIMIT_WINDOW_MS - (nowMs - oldestWithinWindow);
+    return {
+      isLimited: true,
+      retryAfterSec: Math.max(1, Math.ceil(retryAfterMs / 1000)),
+    };
+  }
+
+  recentTimestamps.push(nowMs);
+  submissionsByPerson.set(key, recentTimestamps);
+  return { isLimited: false };
+};
+
 app.post("/api/contact", async (req, res) => {
   const { schoolName, contactName, email, challenge, companyWebsite } =
     req.body || {};
@@ -95,6 +129,17 @@ app.post("/api/contact", async (req, res) => {
   const safeContactName = String(contactName).trim();
   const safeEmail = String(email).trim();
   const safeChallenge = String(challenge).trim();
+  const rateLimitKey = getRateLimitKey({ email: safeEmail, ip: req.ip });
+  const rateLimitState = checkAndTrackRateLimit(rateLimitKey, Date.now());
+
+  if (rateLimitState.isLimited) {
+    return res.status(429).json({
+      ok: false,
+      error: "Too many submissions",
+      code: "RATE_LIMITED",
+      retryAfterSec: rateLimitState.retryAfterSec,
+    });
+  }
 
   try {
     await sendViaResend({
