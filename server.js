@@ -161,7 +161,7 @@ app.get("*", (req, res) => {
   const fullPath = path.join(__dirname, requestedPath);
   res.sendFile(fullPath, (err) => {
     if (err) {
-      res.status(404).send("Not found");
+      res.status(404).sendFile(path.join(__dirname, "404.html"));
     }
   });
 });

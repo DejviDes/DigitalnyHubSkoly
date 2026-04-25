@@ -23,9 +23,20 @@ if (prefersReducedMotion) {
     },
   );
 
-  revealNodes.forEach((node) => observer.observe(node));
+  const skipReveal = (node) => {
+    if (!node.matches(".section")) return false;
+    if (node.matches(".section-compact")) return true;
+    const prev = node.previousElementSibling;
+    return !!(prev && prev.matches(".section.section-compact"));
+  };
 
   revealNodes.forEach((node, index) => {
+    if (skipReveal(node)) {
+      node.classList.add("visible");
+      node.style.transitionDelay = "0s";
+      return;
+    }
+    observer.observe(node);
     const stagger = Math.min(index * 0.035, 0.35);
     node.style.transitionDelay = `${stagger}s`;
   });
@@ -575,40 +586,3 @@ if (lightboxTriggers.length > 0) {
   });
 }
 
-const tiltCards = document.querySelectorAll(
-  ".lift-card, .module, .price-card, .home-app-shot",
-);
-
-if (tiltCards.length > 0 && window.matchMedia("(hover: hover)").matches) {
-  if (prefersReducedMotion) {
-    // Respect accessibility preference by skipping pointer-based tilt.
-  } else {
-    const maxTilt = 6;
-
-    tiltCards.forEach((card) => {
-      card.style.transformStyle = "preserve-3d";
-
-      const resetCard = () => {
-        card.style.transform = "";
-      };
-
-      card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
-        if (!rect.width || !rect.height) {
-          return;
-        }
-
-        const relativeX = (event.clientX - rect.left) / rect.width;
-        const relativeY = (event.clientY - rect.top) / rect.height;
-
-        const rotateY = (relativeX - 0.5) * maxTilt;
-        const rotateX = (0.5 - relativeY) * maxTilt;
-
-        card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
-      });
-
-      card.addEventListener("pointerleave", resetCard);
-      card.addEventListener("blur", resetCard, true);
-    });
-  }
-}
