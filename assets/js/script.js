@@ -65,8 +65,6 @@ const parentRouteMap = [
   { prefix: "vyhody-", target: "vyhody-pre-vas.html" },
   { prefix: "faq", target: "vyhody-pre-vas.html" },
   { prefix: "o-projekte", target: "vyhody-pre-vas.html" },
-  { prefix: "ukazky-demo", target: "vyhody-pre-vas.html" },
-  { prefix: "ako-to-funguje", target: "riesenie.html" },
   { prefix: "porovnanie", target: "riesenie.html" },
 ];
 
@@ -585,4 +583,3 @@ if (lightboxTriggers.length > 0) {
     }
   });
 }
-
