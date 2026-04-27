@@ -45,6 +45,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
   </head>
   <body>
     <header class="site-header">
@@ -158,6 +163,12 @@
               autocomplete="off"
               aria-hidden="true"
             />
+            <input type="hidden" name="formStartTs" data-form-start />
+            <div
+              class="cf-turnstile"
+              data-sitekey="0x4AAAAAADES60cbHAgfTgav"
+              data-theme="light"
+            ></div>
             <button class="btn" type="submit">Odoslať predbežný kontakt</button>
             <p class="contact-form-note" aria-live="polite">
               Formulár slúži na predbežný záujem. Ozveme sa vám, keď spustíme
