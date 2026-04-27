@@ -15,6 +15,13 @@ const resendApiKey = process.env.RESEND_API_KEY;
 const resendFromEmail = process.env.RESEND_FROM_EMAIL;
 const contactToEmail = process.env.CONTACT_TO_EMAIL;
 const contactFromEmail = process.env.CONTACT_FROM_EMAIL;
+const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+
+const DAILY_CAP = Number(process.env.DAILY_EMAIL_CAP) || 80;
+const EMAIL_COOLDOWN_MS = 30 * 60 * 1000;
+const IP_HOURLY_LIMIT = 5;
+const IP_HOURLY_WINDOW_MS = 60 * 60 * 1000;
+const MIN_FORM_FILL_MS = 3000;
 
 if (!contactToEmail) {
   console.warn("Missing CONTACT_TO_EMAIL in .env.");
@@ -23,19 +30,54 @@ if (!contactToEmail) {
 const hasResendConfig = Boolean(resendApiKey && resendFromEmail);
 const resend = hasResendConfig ? new Resend(resendApiKey) : null;
 
-const RATE_LIMIT_WINDOW_MS = 30 * 60 * 1000;
-const RATE_LIMIT_MAX_REQUESTS = 2;
-const submissionsByPerson = new Map();
-
 if (!hasResendConfig) {
-  // Keep startup warning explicit so configuration issues are visible immediately.
   console.warn(
-    "No email provider configured. Set RESEND_API_KEY + RESEND_FROM_EMAIL in .env.",
+    "No Resend config found. Set RESEND_API_KEY + RESEND_FROM_EMAIL in .env.",
+  );
+}
+if (!turnstileSecret) {
+  console.warn(
+    "Missing TURNSTILE_SECRET_KEY in .env — captcha verification will fail.",
   );
 }
 
+// In-memory store for local dev only. On Vercel, api/contact.js uses Vercel KV.
+const emailCooldown = new Map();
+const ipCounter = new Map();
+let dailyDate = new Date().toISOString().slice(0, 10);
+let dailyCount = 0;
+
+const rolloverDailyIfNeeded = () => {
+  const today = new Date().toISOString().slice(0, 10);
+  if (today !== dailyDate) {
+    dailyDate = today;
+    dailyCount = 0;
+  }
+};
+
 app.use(express.json({ limit: "1mb" }));
 app.use(express.static(__dirname));
+
+const verifyTurnstile = async (token, ip) => {
+  if (!turnstileSecret) return false;
+  if (!token) return false;
+
+  const params = new URLSearchParams();
+  params.append("secret", turnstileSecret);
+  params.append("response", token);
+  if (ip) params.append("remoteip", ip);
+
+  try {
+    const res = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      { method: "POST", body: params },
+    );
+    const data = await res.json();
+    return Boolean(data?.success);
+  } catch {
+    return false;
+  }
+};
 
 const sendViaResend = async ({
   safeSchoolName,
@@ -43,9 +85,7 @@ const sendViaResend = async ({
   safeEmail,
   safeChallenge,
 }) => {
-  if (!hasResendConfig) {
-    throw new Error("Resend not configured");
-  }
+  if (!resend) throw new Error("Resend not configured");
 
   const { error } = await resend.emails.send({
     from: contactFromEmail || resendFromEmail,
@@ -76,42 +116,23 @@ const sendViaResend = async ({
   }
 };
 
-const getRateLimitKey = ({ email, ip }) => {
-  const normalizedEmail = String(email || "")
-    .trim()
-    .toLowerCase();
-  if (normalizedEmail) {
-    return `email:${normalizedEmail}`;
-  }
-  return `ip:${ip || "unknown-ip"}`;
-};
-
-const checkAndTrackRateLimit = (key, nowMs) => {
-  const existingTimestamps = submissionsByPerson.get(key) || [];
-  const recentTimestamps = existingTimestamps.filter(
-    (timestamp) => nowMs - timestamp < RATE_LIMIT_WINDOW_MS,
-  );
-
-  if (recentTimestamps.length >= RATE_LIMIT_MAX_REQUESTS) {
-    const oldestWithinWindow = recentTimestamps[0];
-    const retryAfterMs = RATE_LIMIT_WINDOW_MS - (nowMs - oldestWithinWindow);
-    return {
-      isLimited: true,
-      retryAfterSec: Math.max(1, Math.ceil(retryAfterMs / 1000)),
-    };
-  }
-
-  recentTimestamps.push(nowMs);
-  submissionsByPerson.set(key, recentTimestamps);
-  return { isLimited: false };
-};
-
 app.post("/api/contact", async (req, res) => {
-  const { schoolName, contactName, email, challenge, companyWebsite } =
-    req.body || {};
+  const {
+    schoolName,
+    contactName,
+    email,
+    challenge,
+    companyWebsite,
+    formStartTs,
+    turnstileToken,
+  } = req.body || {};
 
   if (companyWebsite) {
-    // Honeypot hit: pretend success to silently drop obvious bot traffic.
+    return res.status(200).json({ ok: true });
+  }
+
+  const startTs = Number(formStartTs);
+  if (!startTs || Date.now() - startTs < MIN_FORM_FILL_MS) {
     return res.status(200).json({ ok: true });
   }
 
@@ -125,21 +146,59 @@ app.post("/api/contact", async (req, res) => {
     return res.status(500).json({ ok: false, error: "Email not configured" });
   }
 
+  const ip = req.ip || "unknown-ip";
+
+  const turnstileOk = await verifyTurnstile(turnstileToken, ip);
+  if (!turnstileOk) {
+    return res
+      .status(403)
+      .json({ ok: false, error: "Captcha failed", code: "CAPTCHA_FAILED" });
+  }
+
   const safeSchoolName = String(schoolName || "").trim();
   const safeContactName = String(contactName).trim();
-  const safeEmail = String(email).trim();
+  const safeEmail = String(email).trim().toLowerCase();
   const safeChallenge = String(challenge || "").trim();
-  const rateLimitKey = getRateLimitKey({ email: safeEmail, ip: req.ip });
-  const rateLimitState = checkAndTrackRateLimit(rateLimitKey, Date.now());
 
-  if (rateLimitState.isLimited) {
+  rolloverDailyIfNeeded();
+  const now = Date.now();
+
+  const lockedUntil = emailCooldown.get(safeEmail);
+  if (lockedUntil && lockedUntil > now) {
     return res.status(429).json({
       ok: false,
       error: "Too many submissions",
       code: "RATE_LIMITED",
-      retryAfterSec: rateLimitState.retryAfterSec,
+      retryAfterSec: Math.ceil((lockedUntil - now) / 1000),
     });
   }
+
+  const ipBucket = ipCounter.get(ip) || { count: 0, resetAt: now + IP_HOURLY_WINDOW_MS };
+  if (ipBucket.resetAt < now) {
+    ipBucket.count = 0;
+    ipBucket.resetAt = now + IP_HOURLY_WINDOW_MS;
+  }
+  if (ipBucket.count >= IP_HOURLY_LIMIT) {
+    return res.status(429).json({
+      ok: false,
+      error: "Too many submissions from this network",
+      code: "RATE_LIMITED",
+      retryAfterSec: Math.ceil((ipBucket.resetAt - now) / 1000),
+    });
+  }
+  ipBucket.count += 1;
+  ipCounter.set(ip, ipBucket);
+
+  if (dailyCount >= DAILY_CAP) {
+    return res.status(503).json({
+      ok: false,
+      error: "Daily limit reached",
+      code: "DAILY_CAP_REACHED",
+    });
+  }
+  dailyCount += 1;
+
+  emailCooldown.set(safeEmail, now + EMAIL_COOLDOWN_MS);
 
   try {
     await sendViaResend({
@@ -148,7 +207,6 @@ app.post("/api/contact", async (req, res) => {
       safeEmail,
       safeChallenge,
     });
-
     return res.status(200).json({ ok: true });
   } catch (error) {
     console.error("Contact form email send failed:", error);
