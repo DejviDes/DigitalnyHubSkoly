@@ -6,7 +6,7 @@
       "dest": "/api/contact.js"
     },
     {
-      "src": "^/pages/ako-to-funguje\.html$",
+      "src": "^/pages/ako-to-funguje\\.html$",
       "status": 308,
       "headers": {
         "Location": "/pages/riesenie.html#ako-to-funguje"
