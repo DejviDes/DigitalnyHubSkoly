@@ -383,6 +383,12 @@ if (contactForm) {
   const statusEl = contactForm.querySelector("[data-form-status]");
   const submitButton = contactForm.querySelector('button[type="submit"]');
   const defaultButtonText = submitButton ? submitButton.textContent : "";
+  const formStartInput = contactForm.querySelector("[data-form-start]");
+  const formMountedAt = Date.now();
+
+  if (formStartInput && !formStartInput.value) {
+    formStartInput.value = String(formMountedAt);
+  }
 
   const setStatus = (message, type) => {
     if (!statusEl) {
@@ -405,10 +411,24 @@ if (contactForm) {
       email: String(formData.get("email") || "").trim(),
       challenge: String(formData.get("challenge") || "").trim(),
       companyWebsite: String(formData.get("companyWebsite") || "").trim(),
+      formStartTs: Number(formData.get("formStartTs") || formMountedAt),
+      turnstileToken: String(
+        formData.get("cf-turnstile-response") ||
+          formData.get("turnstileToken") ||
+          "",
+      ).trim(),
     };
 
     if (!payload.contactName || !payload.email) {
       setStatus("Prosím vyplňte kontaktnú osobu a e-mail.", "is-error");
+      return;
+    }
+
+    const hasTurnstileWidget = Boolean(
+      contactForm.querySelector(".cf-turnstile"),
+    );
+    if (hasTurnstileWidget && !payload.turnstileToken) {
+      setStatus("Potvrďte prosím, že nie ste robot.", "is-error");
       return;
     }
 
@@ -452,10 +472,30 @@ if (contactForm) {
           return;
         }
 
+        if (
+          response.status === 403 ||
+          errorPayload?.code === "CAPTCHA_FAILED"
+        ) {
+          setStatus(
+            "Overenie captcha zlyhalo. Potvrďte prosím, že nie ste robot, a skúste to znova.",
+            "is-error",
+          );
+          return;
+        }
+
         throw new Error("Request failed");
       }
 
       contactForm.reset();
+      if (window.turnstile?.reset) {
+        const widget = contactForm.querySelector(".cf-turnstile");
+        if (widget) {
+          window.turnstile.reset(widget);
+        }
+      }
+      if (formStartInput) {
+        formStartInput.value = String(Date.now());
+      }
       setStatus("Žiadosť bola odoslaná. Ozveme sa vám e-mailom.", "is-success");
     } catch (error) {
       setStatus(
