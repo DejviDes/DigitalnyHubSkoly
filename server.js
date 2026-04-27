@@ -51,23 +51,23 @@ const sendViaResend = async ({
     from: contactFromEmail || resendFromEmail,
     to: contactToEmail,
     replyTo: safeEmail,
-    subject: `Nová žiadosť o demo - ${safeSchoolName}`,
+    subject: `Nový predbežný záujem - ${safeContactName}`,
     text: [
-      "Nová žiadosť o demo z webu.",
+      "Nový predbežný záujem z webu.",
       "",
-      `Škola: ${safeSchoolName}`,
+      `Škola / organizácia: ${safeSchoolName || "Neuvedené"}`,
       `Kontaktná osoba: ${safeContactName}`,
       `E-mail: ${safeEmail}`,
       "",
-      "Najväčšia výzva:",
-      safeChallenge,
+      "Poznámka:",
+      safeChallenge || "Neuvedené",
     ].join("\n"),
     html: `
-      <h2>Nová žiadosť o demo z webu</h2>
-      <p><strong>Škola:</strong> ${safeSchoolName}</p>
+      <h2>Nový predbežný záujem z webu</h2>
+      <p><strong>Škola / organizácia:</strong> ${safeSchoolName || "Neuvedené"}</p>
       <p><strong>Kontaktná osoba:</strong> ${safeContactName}</p>
       <p><strong>E-mail:</strong> ${safeEmail}</p>
-      <p><strong>Najväčšia výzva:</strong><br/>${safeChallenge.replace(/\n/g, "<br/>")}</p>
+      <p><strong>Poznámka:</strong><br/>${(safeChallenge || "Neuvedené").replace(/\n/g, "<br/>")}</p>
     `,
   });
 
@@ -115,7 +115,7 @@ app.post("/api/contact", async (req, res) => {
     return res.status(200).json({ ok: true });
   }
 
-  if (!schoolName || !contactName || !email || !challenge) {
+  if (!contactName || !email) {
     return res
       .status(400)
       .json({ ok: false, error: "Missing required fields" });
@@ -125,10 +125,10 @@ app.post("/api/contact", async (req, res) => {
     return res.status(500).json({ ok: false, error: "Email not configured" });
   }
 
-  const safeSchoolName = String(schoolName).trim();
+  const safeSchoolName = String(schoolName || "").trim();
   const safeContactName = String(contactName).trim();
   const safeEmail = String(email).trim();
-  const safeChallenge = String(challenge).trim();
+  const safeChallenge = String(challenge || "").trim();
   const rateLimitKey = getRateLimitKey({ email: safeEmail, ip: req.ip });
   const rateLimitState = checkAndTrackRateLimit(rateLimitKey, Date.now());
 

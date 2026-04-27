@@ -2,6 +2,10 @@ const revealNodes = document.querySelectorAll(".reveal");
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
+const pathSegments = window.location.pathname.split("/").filter(Boolean);
+const inPagesDir = pathSegments[pathSegments.length - 2] === "pages";
+const resolvePageHref = (page) => (inPagesDir ? page : `pages/${page}`);
+const resolveHomeHref = () => (inPagesDir ? "../index.html" : "index.html");
 
 if (prefersReducedMotion) {
   revealNodes.forEach((node) => {
@@ -47,8 +51,6 @@ const navLinks = document.querySelectorAll(".main-nav a");
 const brandLink = document.querySelector(".brand");
 
 if (brandLink && !brandLink.querySelector(".brand-logo-full")) {
-  const pathSegments = window.location.pathname.split("/").filter(Boolean);
-  const inPagesDir = pathSegments[pathSegments.length - 2] === "pages";
   const assetPrefix = inPagesDir ? "../" : "";
   const fullLogo = document.createElement("img");
   fullLogo.className = "brand-logo-full";
@@ -86,6 +88,133 @@ navLinks.forEach((link) => {
     link.classList.add("active");
   }
 });
+
+const footerWrap = document.querySelector(".site-footer .footer-wrap");
+
+if (footerWrap && !footerWrap.classList.contains("footer-rich")) {
+  const footerTitleRaw =
+    footerWrap.querySelector("p")?.textContent?.trim() || "Digitálny hub školy";
+  const footerTitle =
+    footerTitleRaw.split("•")[0].trim() || "Digitálny hub školy";
+  const allFooterAnchors = Array.from(footerWrap.querySelectorAll("a"));
+  const existingMailLink = allFooterAnchors.find((link) =>
+    link.getAttribute("href")?.startsWith("mailto:"),
+  );
+
+  const socialHostList = [
+    "instagram.com",
+    "linkedin.com",
+    "x.com",
+    "twitter.com",
+    "youtube.com",
+    "tiktok.com",
+  ];
+
+  const detectedSocialLinks = allFooterAnchors
+    .map((link) => ({
+      href: link.getAttribute("href") || "",
+      text: (link.textContent || "").trim(),
+    }))
+    .filter(({ href }) =>
+      socialHostList.some((host) => href.toLowerCase().includes(host)),
+    );
+
+  const socialFallbackLinks = [
+    { href: "https://www.instagram.com/trebaticky.d/", text: "Instagram" },
+    {
+      href: "https://www.linkedin.com/in/trebatickydavid/",
+      text: "LinkedIn",
+    },
+  ];
+
+  const socialLinks =
+    detectedSocialLinks.length > 0 ? detectedSocialLinks : socialFallbackLinks;
+
+  const pageLinks = [
+    { text: "Domov", href: resolveHomeHref() },
+    { text: "Riešenie", href: resolvePageHref("riesenie.html") },
+    { text: "Moduly", href: resolvePageHref("moduly.html") },
+    { text: "Výhody pre vás", href: resolvePageHref("vyhody-pre-vas.html") },
+    { text: "Cenník", href: resolvePageHref("cennik.html") },
+    { text: "Kontakt", href: resolvePageHref("kontakt.html") },
+  ];
+
+  const resolveSocialType = (href = "") => {
+    const lowerHref = href.toLowerCase();
+    if (lowerHref.includes("instagram.com")) return "instagram";
+    if (lowerHref.includes("linkedin.com")) return "linkedin";
+    if (lowerHref.includes("x.com") || lowerHref.includes("twitter.com")) {
+      return "x";
+    }
+    return "generic";
+  };
+
+  const socialIcon = (type) => {
+    if (type === "instagram") {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.8" r="1"></circle></svg>';
+    }
+    if (type === "linkedin") {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3"></rect><circle cx="8" cy="9" r="1.5"></circle><path d="M6.9 11.2v6"></path><path d="M11 17.2v-6"></path><path d="M11 13.8c0-1.5 1.1-2.6 2.5-2.6s2.4 1 2.4 2.8v3.2"></path></svg>';
+    }
+    if (type === "x") {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14"></path><path d="M19 5l-5.6 6.4"></path><path d="M10.5 15.6L5 19"></path></svg>';
+    }
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8.2v7.2"></path><path d="M8.4 11.8h7.2"></path></svg>';
+  };
+
+  const socialHtml = `<div class="footer-social footer-social-icons" aria-label="Sociálne siete">${socialLinks
+    .map(({ href, text }) => {
+      const type = resolveSocialType(href);
+      const label = text || "Profil";
+      return `<a href="${href}" target="_blank" rel="noopener" aria-label="${label}">${socialIcon(type)}<span>${label}</span></a>`;
+    })
+    .join("")}</div>`;
+
+  const contactEmail = existingMailLink
+    ? (
+        existingMailLink.getAttribute("href") ||
+        "mailto:trebaticky.david@outlook.com"
+      ).replace("mailto:", "")
+    : "trebaticky.david@outlook.com";
+
+  const contactHtml = `
+    <ul class="footer-contact-list">
+      <li><span>Meno:</span> David Trebatický</li>
+      <li><span>E-mail:</span> <a href="mailto:${contactEmail}">${contactEmail}</a></li>
+      <li><span>Telefón:</span> +421944021690</li>
+    </ul>
+  `;
+
+  footerWrap.classList.add("footer-rich");
+  footerWrap.innerHTML = `
+    <div class="footer-grid">
+      <section class="footer-col footer-col-brand" aria-label="Základné informácie">
+        <h3>${footerTitle}</h3>
+        <p>Jedno digitálne miesto pre procesy školy, ktoré znižuje administratívu a zlepšuje prehľad.</p>
+        <a class="footer-mail" href="${resolvePageHref("kontakt.html")}">Prejsť na kontakt</a>
+      </section>
+
+      <section class="footer-col" aria-label="Hlavná navigácia">
+        <h3>Stránky</h3>
+        <ul class="footer-links">
+          ${pageLinks
+            .map(({ text, href }) => `<li><a href="${href}">${text}</a></li>`)
+            .join("")}
+        </ul>
+      </section>
+
+      <section class="footer-col" aria-label="Kontakt na prevádzkovateľa">
+        <h3>Kontakt na mňa</h3>
+        ${contactHtml}
+        ${socialHtml}
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© ${new Date().getFullYear()} ${footerTitle}. Všetky práva vyhradené.</p>
+    </div>
+  `;
+}
 
 const mobileNavBreakpoint = 860;
 const siteHeader = document.querySelector(".site-header");
@@ -278,13 +407,8 @@ if (contactForm) {
       companyWebsite: String(formData.get("companyWebsite") || "").trim(),
     };
 
-    if (
-      !payload.schoolName ||
-      !payload.contactName ||
-      !payload.email ||
-      !payload.challenge
-    ) {
-      setStatus("Prosím vyplňte všetky povinné polia.", "is-error");
+    if (!payload.contactName || !payload.email) {
+      setStatus("Prosím vyplňte kontaktnú osobu a e-mail.", "is-error");
       return;
     }
 

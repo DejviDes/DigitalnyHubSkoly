@@ -4,20 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digitálny hub školy | Kontakt</title>
-    <meta name="description" content="Zanechajte predbežný kontakt — ozveme sa, keď spustíme ďalší krok." />
-        <link rel="icon" type="image/png" href="../assets/images/favicon.png?v=3" />
-    <link rel="canonical" href="https://digitalnyhubskoly.sk/pages/kontakt.html" />
+    <meta
+      name="description"
+      content="Zanechajte predbežný kontakt — ozveme sa, keď spustíme ďalší krok."
+    />
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png?v=3" />
+    <link
+      rel="canonical"
+      href="https://digitalnyhubskoly.sk/pages/kontakt.html"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="sk_SK" />
     <meta property="og:title" content="Digitálny hub školy | Kontakt" />
-    <meta property="og:description" content="Zanechajte predbežný kontakt — ozveme sa, keď spustíme ďalší krok." />
-    <meta property="og:url" content="https://digitalnyhubskoly.sk/pages/kontakt.html" />
-    <meta property="og:image" content="https://digitalnyhubskoly.sk/assets/images/homepage.png" />
+    <meta
+      property="og:description"
+      content="Zanechajte predbežný kontakt — ozveme sa, keď spustíme ďalší krok."
+    />
+    <meta
+      property="og:url"
+      content="https://digitalnyhubskoly.sk/pages/kontakt.html"
+    />
+    <meta
+      property="og:image"
+      content="https://digitalnyhubskoly.sk/assets/images/homepage.png"
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Digitálny hub školy | Kontakt" />
-    <meta name="twitter:description" content="Zanechajte predbežný kontakt — ozveme sa, keď spustíme ďalší krok." />
-    <meta name="twitter:image" content="https://digitalnyhubskoly.sk/assets/images/homepage.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <meta
+      name="twitter:description"
+      content="Zanechajte predbežný kontakt — ozveme sa, keď spustíme ďalší krok."
+    />
+    <meta
+      name="twitter:image"
+      content="https://digitalnyhubskoly.sk/assets/images/homepage.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap"
@@ -38,7 +59,9 @@
           ><a href="vyhody-pre-vas.html">Výhody pre vás</a
           ><a href="cennik.html">Cenník</a><a href="kontakt.html">Kontakt</a>
         </nav>
-        <a class="btn btn-small" href="kontakt.html">Zanechať predbežný kontakt</a>
+        <a class="btn btn-small" href="kontakt.html"
+          >Zanechať predbežný kontakt</a
+        >
       </div>
     </header>
 
@@ -54,10 +77,46 @@
           <div>
             <h1>Zanechajte predbežný kontakt</h1>
             <p>
-              Vyplňte formulár a ozveme sa, keď spustíme ďalší krok pre školy.
-              Vaše procesy a priority nám pomôžu pripraviť ukážku podľa reality.
+              Vyplňte formulár a ozveme sa vám k ďalšiemu postupu. Formulár
+              aktuálne slúži na predbežný záujem.
             </p>
-            <p class="muted">Odpoveď do 2 pracovných dní.</p>
+            <p class="muted">Odpovedáme do 2 pracovných dní.</p>
+
+            <article class="card" style="margin-top: 18px">
+              <h2 style="font-size: 1.2rem; margin-bottom: 10px">
+                Priamy kontakt na mňa
+              </h2>
+              <p class="muted" style="margin-bottom: 8px">
+                Meno a priezvisko: David Trebatický
+              </p>
+              <p class="muted" style="margin-bottom: 8px">
+                E-mail:
+                <a href="mailto:trebaticky.david@outlook.com"
+                  >trebaticky.david@outlook.com</a
+                >
+              </p>
+              <p class="muted" style="margin-bottom: 8px">
+                Telefón: +421944021690
+              </p>
+              <p class="muted" style="margin-bottom: 8px">
+                Instagram:
+                <a
+                  href="https://www.instagram.com/trebaticky.d/"
+                  target="_blank"
+                  rel="noopener"
+                  >@trebaticky.d</a
+                >
+              </p>
+              <p class="muted" style="margin-bottom: 0">
+                LinkedIn:
+                <a
+                  href="https://www.linkedin.com/in/trebatickydavid/"
+                  target="_blank"
+                  rel="noopener"
+                  >David Trebatický</a
+                >
+              </p>
+            </article>
           </div>
           <form
             class="contact-form"
@@ -65,13 +124,6 @@
             data-contact-endpoint="/api/contact"
             aria-label="Formulár predbežného kontaktu"
           >
-            <label
-              >Názov školy<input
-                name="schoolName"
-                type="text"
-                required
-                placeholder="Napr. Stredná odborná škola"
-            /></label>
             <label
               >Kontaktná osoba<input
                 name="contactName"
@@ -84,13 +136,18 @@
                 name="email"
                 type="email"
                 required
-                placeholder="riaditel@skola.sk"
+                placeholder="napr. meno@domena.sk"
             /></label>
             <label
-              >Najväčšia výzva<textarea
+              >Škola / organizácia (voliteľné)<input
+                name="schoolName"
+                type="text"
+                placeholder="Napr. Základná škola, firma, obec"
+            /></label>
+            <label
+              >Poznámka (voliteľné)<textarea
                 name="challenge"
-                required
-                placeholder="Krátko popíšte, čo chcete zjednodušiť"
+                placeholder="Krátko doplňte, čo by ste chceli riešiť"
               ></textarea>
             </label>
             <input
@@ -103,10 +160,10 @@
             />
             <button class="btn" type="submit">Odoslať predbežný kontakt</button>
             <p class="contact-form-note" aria-live="polite">
-              Demo zatiaľ neposielame priamo školám. Formulár slúži ako
-              predbežný záujem a ozveme sa vám, keď spustíme ďalší krok.
-              Odoslaním súhlasíte so spracúvaním údajov podľa
-              <a href="ochrana-osobnych-udajov.html">Ochrany osobných údajov</a>.
+              Formulár slúži na predbežný záujem. Ozveme sa vám, keď spustíme
+              ďalší krok. Odoslaním súhlasíte so spracúvaním údajov podľa
+              <a href="ochrana-osobnych-udajov.html">Ochrany osobných údajov</a
+              >.
             </p>
             <p
               class="contact-form-status"
@@ -122,6 +179,19 @@
       <div class="container footer-wrap">
         <p>Digitálny hub školy • Kontakt</p>
         <a href="../index.html">Domov</a>
+        <a href="mailto:trebaticky.david@outlook.com">E-mail na mňa</a>
+        <a
+          href="https://www.instagram.com/trebaticky.d/"
+          target="_blank"
+          rel="noopener"
+          >Instagram</a
+        >
+        <a
+          href="https://www.linkedin.com/in/trebatickydavid/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        >
         <a href="ochrana-osobnych-udajov.html">Ochrana osobných údajov</a>
       </div>
     </footer>

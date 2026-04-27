@@ -1679,6 +1679,119 @@ textarea:focus {
   gap: 12px;
 }
 
+.footer-wrap.footer-rich {
+  min-height: 0;
+  display: block;
+  padding: 34px 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 22px;
+}
+
+.footer-col h3 {
+  margin: 0 0 12px;
+  font-size: 1.08rem;
+  color: var(--sp-blue-700);
+}
+
+.footer-col p {
+  margin: 0;
+  color: var(--ink-700);
+}
+
+.footer-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.footer-links a {
+  display: inline-block;
+}
+
+.footer-contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.footer-contact-list li {
+  color: var(--ink-700);
+  font-size: 0.95rem;
+}
+
+.footer-contact-list span {
+  color: var(--sp-blue-700);
+  font-weight: 600;
+}
+
+.footer-mail {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(8, 63, 153, 0.28);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--sp-blue-700);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-social {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(8, 63, 153, 0.24);
+  background: rgba(255, 255, 255, 0.64);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.footer-social-icons a {
+  gap: 7px;
+  padding: 6px 11px;
+}
+
+.footer-social-icons svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.footer-bottom {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(8, 63, 153, 0.2);
+}
+
+.footer-bottom p {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-500);
+  font-size: 0.89rem;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -1749,6 +1862,10 @@ main > .section.section-compact + .section.reveal {
   .timeline-wrap,
   .cta-grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-mockup-grid {
@@ -1836,6 +1953,20 @@ main > .section.section-compact + .section.reveal {
     padding: 14px 0;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .footer-wrap.footer-rich {
+    padding: 24px 0 16px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .footer-bottom {
+    margin-top: 14px;
+    padding-top: 12px;
   }
 }
 
@@ -2420,4 +2551,3 @@ textarea:focus,
     grid-template-columns: 1fr;
   }
 }
-

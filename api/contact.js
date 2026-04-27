@@ -26,23 +26,23 @@ const sendViaResend = async ({
     from: contactFromEmail || resendFromEmail,
     to: contactToEmail,
     replyTo: safeEmail,
-    subject: `Nova ziadost o demo - ${safeSchoolName}`,
+    subject: `Novy predbezny zaujem - ${safeContactName}`,
     text: [
-      "Nova ziadost o demo z webu.",
+      "Novy predbezny zaujem z webu.",
       "",
-      `Skola: ${safeSchoolName}`,
+      `Skola / organizacia: ${safeSchoolName || "Neuvedene"}`,
       `Kontaktna osoba: ${safeContactName}`,
       `E-mail: ${safeEmail}`,
       "",
-      "Najvacsia vyzva:",
-      safeChallenge,
+      "Poznamka:",
+      safeChallenge || "Neuvedene",
     ].join("\n"),
     html: `
-      <h2>Nova ziadost o demo z webu</h2>
-      <p><strong>Skola:</strong> ${safeSchoolName}</p>
+      <h2>Novy predbezny zaujem z webu</h2>
+      <p><strong>Skola / organizacia:</strong> ${safeSchoolName || "Neuvedene"}</p>
       <p><strong>Kontaktna osoba:</strong> ${safeContactName}</p>
       <p><strong>E-mail:</strong> ${safeEmail}</p>
-      <p><strong>Najvacsia vyzva:</strong><br/>${safeChallenge.replace(/\n/g, "<br/>")}</p>
+      <p><strong>Poznamka:</strong><br/>${(safeChallenge || "Neuvedene").replace(/\n/g, "<br/>")}</p>
     `,
   });
 
@@ -125,7 +125,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true });
   }
 
-  if (!schoolName || !contactName || !email || !challenge) {
+  if (!contactName || !email) {
     return res
       .status(400)
       .json({ ok: false, error: "Missing required fields" });
@@ -135,10 +135,10 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, error: "Email not configured" });
   }
 
-  const safeSchoolName = String(schoolName).trim();
+  const safeSchoolName = String(schoolName || "").trim();
   const safeContactName = String(contactName).trim();
   const safeEmail = String(email).trim();
-  const safeChallenge = String(challenge).trim();
+  const safeChallenge = String(challenge || "").trim();
   const rateLimitKey = getRateLimitKey({
     email: safeEmail,
     ip: getClientIp(req),
