@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Digitálny hub školy">
+<rect width="512" height="512" rx="112" fill="#20307A"/>
+<g stroke="#FFFFFF" stroke-width="36" stroke-linecap="round">
+<line x1="256" y1="289" x2="256" y2="159"/>
+<line x1="256" y1="289" x2="143" y2="354"/>
+<line x1="256" y1="289" x2="369" y2="354"/></g>
+<circle cx="256" cy="159" r="31" fill="#FFFFFF"/>
+<circle cx="143" cy="354" r="31" fill="#FFFFFF"/>
+<circle cx="369" cy="354" r="31" fill="#FFFFFF"/>
+<circle cx="256" cy="289" r="52" fill="#38BDF8"/>
+</svg>
