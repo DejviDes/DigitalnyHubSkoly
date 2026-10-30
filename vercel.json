@@ -6,10 +6,115 @@
       "dest": "/api/contact.js"
     },
     {
+      "src": "^/pages/index\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
+      "src": "^/pages/kontakt\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#kontakt"
+      }
+    },
+    {
+      "src": "^/pages/cennik\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#cena"
+      }
+    },
+    {
+      "src": "^/pages/faq\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#faq"
+      }
+    },
+    {
+      "src": "^/pages/moduly\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#moduly"
+      }
+    },
+    {
+      "src": "^/pages/modul-personalna-agenda\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#moduly"
+      }
+    },
+    {
+      "src": "^/pages/modul-ekonomicka-agenda\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#moduly"
+      }
+    },
+    {
+      "src": "^/pages/modul-majetok-infrastruktura\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#moduly"
+      }
+    },
+    {
+      "src": "^/pages/modul-pedagogicka-agenda\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#moduly"
+      }
+    },
+    {
+      "src": "^/pages/modul-spatna-vazba-porady\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#moduly"
+      }
+    },
+    {
+      "src": "^/pages/riesenie\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#ako-to-funguje"
+      }
+    },
+    {
       "src": "^/pages/ako-to-funguje\\.html$",
       "status": 308,
       "headers": {
-        "Location": "/pages/riesenie.html#ako-to-funguje"
+        "Location": "/#ako-to-funguje"
+      }
+    },
+    {
+      "src": "^/pages/porovnanie\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#bezpecnost"
+      }
+    },
+    {
+      "src": "^/pages/o-projekte\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#o-mne"
+      }
+    },
+    {
+      "src": "^/pages/ochrana-osobnych-udajov\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/ochrana-osobnych-udajov.html"
+      }
+    },
+    {
+      "src": "^/pages/vyhody-[a-z-]+\\.html$",
+      "status": 308,
+      "headers": {
+        "Location": "/#pre-koho"
       }
     },
     {

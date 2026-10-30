@@ -1,550 +1,722 @@
 <!doctype html>
 <html lang="sk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digitálny hub školy | Moderné riadenie školy</title>
-    <meta
-      name="description"
-      content="Moderné digitálne prostredie pre riadenie školy. Procesy, dokumenty a komunikácia na jednom mieste."
-    />
-    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=4" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png?v=4" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png?v=4" />
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=4" />
-    <link rel="manifest" href="site.webmanifest" />
-    <meta name="theme-color" content="#20307A" />
-    <link rel="canonical" href="https://digitalnyhubskoly.sk/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="sk_SK" />
-    <meta
-      property="og:title"
-      content="Digitálny hub školy | Moderné riadenie školy"
-    />
-    <meta
-      property="og:description"
-      content="Moderné digitálne prostredie pre riadenie školy. Procesy, dokumenty a komunikácia na jednom mieste."
-    />
-    <meta property="og:url" content="https://digitalnyhubskoly.sk/" />
-    <meta
-      property="og:image"
-      content="https://digitalnyhubskoly.sk/assets/images/homepage.png"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Digitálny hub školy | Moderné riadenie školy"
-    />
-    <meta
-      name="twitter:description"
-      content="Moderné digitálne prostredie pre riadenie školy. Procesy, dokumenty a komunikácia na jednom mieste."
-    />
-    <meta
-      name="twitter:image"
-      content="https://digitalnyhubskoly.sk/assets/images/homepage.png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-  <body class="home-media-hidden">
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="index.html" class="brand" aria-label="Digitálny hub školy">
-          <span class="brand-mark">DH</span>
-          <span class="brand-text">Digitálny hub školy</span>
-        </a>
-        <nav class="main-nav" aria-label="Hlavná navigácia">
-          <a href="index.html">Domov</a>
-          <a href="pages/riesenie.html">Riešenie</a>
-          <a href="pages/moduly.html">Moduly</a>
-          <a href="pages/vyhody-pre-vas.html">Výhody pre vás</a>
-          <a href="pages/cennik.html">Cenník</a>
-          <a href="pages/kontakt.html">Kontakt</a>
-        </nav>
-        <a class="btn btn-small" href="pages/kontakt.html"
-          >Zanechať predbežný kontakt</a
-        >
-      </div>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digitálny hub školy – celá agenda školy v Microsoft 365</title>
+  <meta name="description" content="Školský intranet na SharePointe a Microsoft 365. Žiadosti, zmluvy, faktúry, majetok, plány vyučovania a porady na jednom mieste, so schvaľovaním a automatizáciami." />
+  <link rel="canonical" href="https://digitalnyhubskoly.sk/" />
+  <meta name="theme-color" content="#021431" />
 
-    <main>
-      <!-- 1) Hero -->
-      <section class="hero section reveal">
-        <div class="container hero-grid">
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sk_SK" />
+  <meta property="og:url" content="https://digitalnyhubskoly.sk/" />
+  <meta property="og:title" content="Digitálny hub školy" />
+  <meta property="og:description" content="Celá agenda školy na jednom mieste. V Microsoft 365, ktorý škola už má." />
+  <meta property="og:image" content="https://digitalnyhubskoly.sk/assets/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-euro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12M4 14h9M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></symbol>
+      <symbol id="i-box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
+      <symbol id="i-tasks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+      <symbol id="i-form" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 12h6M9 16h4"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></symbol>
+      <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+      <symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></symbol>
+      <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M16 14v4M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-usercheck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="m9 13 2 2 4-4"/></symbol>
+      <symbol id="i-dash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+      <symbol id="i-school" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65M22 12.65l-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+      <symbol id="i-hub" viewBox="0 0 512 512"><g stroke="#fff" stroke-width="36" stroke-linecap="round"><path d="M256 289V159M256 289l-113 65M256 289l113 65"/></g><g fill="#fff"><circle cx="256" cy="159" r="31"/><circle cx="143" cy="354" r="31"/><circle cx="369" cy="354" r="31"/></g><circle cx="256" cy="289" r="52" fill="#38bdf8"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#obsah">Preskočiť na obsah</a>
+
+  <header class="site-header" data-header>
+    <div class="container">
+      <a class="brand" href="#top" aria-label="Digitálny hub školy – na začiatok">
+        <svg class="brand__mark" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#083f99"/><use href="#i-hub"/></svg>
+        <span class="brand__name">digitálny hub školy</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" data-nav-toggle>
+        <span class="sr-only">Menu</span>
+        <svg class="icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon-close" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+      <nav class="nav" id="nav" aria-label="Hlavná navigácia">
+        <a href="#moduly">Čo to vie</a>
+        <a href="#ako-to-funguje">Ako to funguje</a>
+        <a href="#pre-koho">Pre koho</a>
+        <a href="#nasadenie">Nasadenie a cena</a>
+        <a href="#faq">Otázky</a>
+        <a class="btn btn--primary btn--sm" href="#kontakt">Dohodnúť ukážku</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="obsah">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <span class="eyebrow">Školský intranet pre Microsoft 365</span>
+          <h1 class="hero__title">Celá agenda školy. <em>Na jednom mieste.</em></h1>
+          <p class="hero__lead">
+            Žiadosti, zmluvy, faktúry, majetok, plány vyučovania aj porady v jednom prepojenom
+            prostredí. Schvaľovanie prejde k správnym ľuďom samo a každý vidí len to, čo vidieť má.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#kontakt">Dohodnúť ukážku <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost-light" href="#moduly">Pozrieť, čo to vie</a>
+          </div>
+          <ul class="hero__trust">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>SharePoint, Teams a Outlook</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dáta zostávajú vo vašej škole</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Žiadne nové servery</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hub">
+            <svg class="hub__lines" viewBox="0 0 560 560">
+              <circle class="ring" cx="280" cy="280" r="190"/>
+              <circle class="ring" cx="280" cy="280" r="120"/>
+              <path id="l1" class="line" d="M280 280 470 280"/>
+              <path id="l2" class="line" d="M280 280 375 444.5"/>
+              <path id="l3" class="line" d="M280 280 185 444.5"/>
+              <path id="l4" class="line" d="M280 280 90 280"/>
+              <path id="l5" class="line" d="M280 280 185 115.5"/>
+              <path id="l6" class="line" d="M280 280 375 115.5"/>
+              <circle class="pulse" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#l4"/></animateMotion></circle>
+              <circle class="pulse" r="4"><animateMotion dur="2.6s" begin="-1.3s" repeatCount="indefinite"><mpath href="#l1"/></animateMotion></circle>
+              <circle class="pulse" r="3.5"><animateMotion dur="3.2s" begin="-0.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#l5"/></animateMotion></circle>
+              <circle class="pulse" r="3.5"><animateMotion dur="3s" begin="-2s" repeatCount="indefinite"><mpath href="#l2"/></animateMotion></circle>
+              <circle class="pulse" r="3.5"><animateMotion dur="3.4s" begin="-0.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#l3"/></animateMotion></circle>
+              <circle class="pulse" r="3.5"><animateMotion dur="2.8s" begin="-1.7s" repeatCount="indefinite"><mpath href="#l6"/></animateMotion></circle>
+            </svg>
+            <div class="hub__core"><svg viewBox="0 0 512 512"><use href="#i-hub"/></svg></div>
+            <span class="hub__node" style="left:83.93%;top:50%"><i><svg><use href="#i-euro"/></svg></i>Zmluvy</span>
+            <span class="hub__node" style="left:66.96%;top:79.38%"><i><svg><use href="#i-box"/></svg></i>Majetok</span>
+            <span class="hub__node" style="left:33.04%;top:79.38%"><i><svg><use href="#i-chat"/></svg></i>Porady</span>
+            <span class="hub__node" style="left:16.07%;top:50%"><i><svg><use href="#i-users"/></svg></i>Žiadosti</span>
+            <span class="hub__node" style="left:33.04%;top:20.63%"><i><svg><use href="#i-book"/></svg></i>Plány výučby</span>
+            <span class="hub__node" style="left:66.96%;top:20.63%"><i><svg><use href="#i-tasks"/></svg></i>Úlohy</span>
+
+            <div class="toast toast--wait">
+              <span class="toast__icon"><svg><use href="#i-clock"/></svg></span>
+              <span><b>Faktúra DF2026/0014</b><small>Čaká na schválenie ekonómom</small></span>
+            </div>
+            <div class="toast toast--ok">
+              <span class="toast__icon"><svg><use href="#i-check"/></svg></span>
+              <span><b>Dovolenka 18. – 22. 11. schválená</b><small>Upozornenie prišlo do Outlooku</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problém -> riešenie -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Prečo hub</span>
+          <h2>Agenda školy dnes žije v e‑mailoch, šanónoch a tabuľkách</h2>
+          <p>Hub ju presunie do jedného prostredia. Každá vec má svoje miesto a každý vie, čo je na ňom.</p>
+        </div>
+        <div class="compare">
+          <article class="compare__item reveal">
+            <div class="compare__row compare__row--before"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-x"/></svg></span><p>Žiadosť o dovolenku putuje e-mailom a nikto nevie, kde uviazla.</p></div>
+            <div class="compare__divider"></div>
+            <div class="compare__row compare__row--after"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-check"/></svg></span><p>Jeden formulár. Schvaľovateľ dostane upozornenie a stav vidí žiadateľ aj vedenie.</p></div>
+          </article>
+          <article class="compare__item reveal" data-delay="1">
+            <div class="compare__row compare__row--before"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-x"/></svg></span><p>Zmluvy v šanóne, objednávky v Exceli, faktúry v pošte.</p></div>
+            <div class="compare__divider"></div>
+            <div class="compare__row compare__row--after"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-check"/></svg></span><p>Zmluva, jej objednávky a faktúry sú prepojené. Dohľadáte ich jedným klikom.</p></div>
+          </article>
+          <article class="compare__item reveal">
+            <div class="compare__row compare__row--before"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-x"/></svg></span><p>Kde je projektor z učebne 214 a kto zaň zodpovedá?</p></div>
+            <div class="compare__divider"></div>
+            <div class="compare__row compare__row--after"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-check"/></svg></span><p>Každý kus majetku má miestnosť, zodpovednú osobu a stav. Poškodenie sa nahlási z detailu.</p></div>
+          </article>
+          <article class="compare__item reveal" data-delay="1">
+            <div class="compare__row compare__row--before"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-x"/></svg></span><p>Z porady ostane zápisnica a úlohy sa stratia.</p></div>
+            <div class="compare__divider"></div>
+            <div class="compare__row compare__row--after"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-check"/></svg></span><p>Porada má agendu, pozvaných a úlohy s termínom. Zápisnicu vygeneruje hub do Wordu.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Moduly -->
+    <section class="section section--alt" id="moduly">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Čo to vie</span>
+          <h2>Päť modulov, ktoré spolu hovoria</h2>
+          <p>Moduly zdieľajú zamestnancov, dokumenty aj oprávnenia. Žiadne prepisovanie tých istých údajov na viac miest.</p>
+        </div>
+
+        <div class="modules reveal">
+          <div class="tabs" role="tablist" aria-label="Moduly" data-tabs>
+            <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">
+              <span class="tab__icon"><svg aria-hidden="true"><use href="#i-users"/></svg></span>
+              <span>Personálna agenda<small>žiadosti, absencie, cesty</small></span>
+            </button>
+            <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">
+              <span class="tab__icon"><svg aria-hidden="true"><use href="#i-euro"/></svg></span>
+              <span>Ekonomická agenda<small>zmluvy, objednávky, faktúry</small></span>
+            </button>
+            <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">
+              <span class="tab__icon"><svg aria-hidden="true"><use href="#i-box"/></svg></span>
+              <span>Majetok<small>vybavenie, miestnosti, vozidlá</small></span>
+            </button>
+            <button class="tab" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">
+              <span class="tab__icon"><svg aria-hidden="true"><use href="#i-book"/></svg></span>
+              <span>Pedagogická agenda<small>plány, predmety, triedy</small></span>
+            </button>
+            <button class="tab" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1">
+              <span class="tab__icon"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>
+              <span>Porady a podnety<small>agenda, zápisnice, návrhy</small></span>
+            </button>
+          </div>
+
           <div>
-            <p class="eyebrow">Digitálny hub školy</p>
-            <h1>
-              Výsledky digitalizácie, ktoré vedenie školy vidí už v prvých
-              týždňoch
-            </h1>
-            <p class="lead">
-              Digitálny hub prepája procesy školy do jedného riadeného
-              prostredia. Nejde len o nový systém, ale o merateľné zrýchlenie
-              práce, prehľad pre vedenie a menej operatívneho chaosu.
-            </p>
-            <div class="hero-cta">
-              <a class="btn" href="pages/kontakt.html"
-                >Zanechať predbežný kontakt</a
-              >
-              <a class="btn btn-ghost" href="pages/moduly.html"
-                >Pozrieť moduly</a
-              >
-            </div>
-          </div>
-          <article class="card hero-mockup home-hero-panel">
-            <div class="hero-status-row">
-              <span class="status-badge">Reálne výsledky z pilotov</span>
-              <span class="hero-mockup-dot"
-                >Aktualizované: kvartálne benchmarky</span
-              >
-            </div>
-            <div class="home-kpi-grid">
-              <article class="metric">
-                <strong>-37%</strong>
-                <span>Času na administratívne úlohy</span>
-              </article>
-              <article class="metric">
-                <strong>+44%</strong>
-                <span>Rýchlejšie interné schvaľovanie</span>
-              </article>
-              <article class="metric">
-                <strong>-52%</strong>
-                <span>Menej stratených požiadaviek</span>
-              </article>
-              <article class="metric">
-                <strong>14 dní</strong>
-                <span>Priemer prvých viditeľných efektov</span>
-              </article>
-            </div>
-            <div class="home-link-row">
-              <a href="pages/riesenie.html">Ako funguje riešenie</a>
-              <a href="pages/vyhody-pre-vas.html">Výhody podľa role</a>
-              <a href="pages/cennik.html">Model nasadenia</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- 2) Dôkazy hodnoty -->
-      <section class="section alt reveal">
-        <div class="container">
-          <h2>Kde školy vidia najrýchlejší dopad</h2>
-          <div class="home-proof-grid">
-            <article class="card lift-card">
-              <h3>Personálna agenda</h3>
-              <p class="home-proof-metric">-41% času na žiadosti a absencie</p>
-              <p>
-                Automatizované schvaľovanie odstráni ručné preposielanie a
-                nejasné stavy požiadaviek.
-              </p>
-            </article>
-            <article class="card lift-card">
-              <h3>Ekonomická agenda</h3>
-              <p class="home-proof-metric">
-                +46% rýchlejšie spracovanie dokladov
-              </p>
-              <p>
-                Objednávky, faktúry a zmluvy majú jasné väzby, termíny a
-                notifikácie pre zodpovedné role.
-              </p>
-            </article>
-            <article class="card lift-card">
-              <h3>Majetok a servis</h3>
-              <p class="home-proof-metric">-33% času na riešenie porúch</p>
-              <p>
-                Poruchy, servisné zásahy a história majetku sú v jednom toku bez
-                dohľadávania medzi nástrojmi.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3) Mini case studies -->
-      <section class="section reveal">
-        <div class="container">
-          <h2>Mini case studies zo školského prostredia</h2>
-          <p class="section-lead">
-            Typické scenáre, kde sa efekt digitalizácie prejavuje najrýchlejšie.
-          </p>
-          <div class="home-case-grid">
-            <article class="card home-case-card lift-card">
-              <p class="eyebrow">Stredná odborná škola</p>
-              <h3>Personálne procesy bez e-mailového chaosu</h3>
-              <p>
-                Do 3 týždňov prešli všetky interné žiadosti na jednotné
-                formuláre a vedenie získalo aktuálny prehľad stavu.
-              </p>
-              <div class="result-pills">
-                <span class="result-pill result-pill-good"
-                  >-39% ručných zásahov</span
-                >
-                <span class="result-pill result-pill-wip"
-                  >+28% rýchlejšie schválenia</span
-                >
+            <!-- Personálna -->
+            <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+              <div>
+                <h3>Personálna agenda</h3>
+                <p>Všetko, čo zamestnanec potrebuje vybaviť so školou, bez papiera a bez naháňania podpisov.</p>
+                <ul class="checklist">
+                  <li><span><b>Žiadosti so schvaľovaním</b> podľa typu a oblasti. Hub nájde schvaľovateľa sám.</span></li>
+                  <li><span><b>Absencie a dovolenky</b> s automatickým výpočtom dní.</span></li>
+                  <li><span><b>Pracovné cesty</b> s cestovným príkazom vygenerovaným do Wordu.</span></li>
+                  <li><span><b>Vzdelávanie zamestnancov</b> s pozvánkami a potvrdením účasti.</span></li>
+                </ul>
               </div>
-            </article>
-            <article class="card home-case-card lift-card">
-              <p class="eyebrow">Gymnázium</p>
-              <h3>Objednávky a faktúry v jednom toku</h3>
-              <p>
-                Ekonomické oddelenie spojilo objednávky, faktúry a zmluvy do
-                jedného procesu s automatickými upozorneniami.
-              </p>
-              <div class="result-pills">
-                <span class="result-pill result-pill-good"
-                  >-47% omeškaných dokladov</span
-                >
-                <span class="result-pill result-pill-wip"
-                  >+42% rýchlejší audit</span
-                >
+              <div class="app" aria-hidden="true">
+                <div class="app__bar"><svg viewBox="0 0 512 512"><use href="#i-hub"/></svg><span>Žiadosti</span><span>Personálna agenda</span></div>
+                <div class="app__body">
+                  <div class="app__title"><h4>Moje schvaľovanie</h4><span class="meta">4 žiadosti</span></div>
+                  <div class="row-ui is-active"><div><b>Dovolenka 18. – 22. 11. 2026</b><small>Martina Horváthová · 5 pracovných dní</small></div><span class="pill pill--wait">Čaká</span></div>
+                  <div class="row-ui"><div><b>Pracovná cesta – Bratislava</b><small>Peter Kováč · 21. 11. 2026</small></div><span class="pill pill--ok">Schválená</span></div>
+                  <div class="row-ui"><div><b>Školenie: Microsoft 365 v triede</b><small>Jana Molnárová · 3. 12. 2026</small></div><span class="pill pill--ok">Schválená</span></div>
+                  <div class="row-ui"><div><b>Náhradné voľno</b><small>Tomáš Baláž · 28. 11. 2026</small></div><span class="pill pill--bad">Zamietnutá</span></div>
+                  <div class="card-ui app__title"><span class="meta">Rozhodujete ako zástupca riaditeľa</span><span class="ui-actions"><span class="ui-btn ui-btn--light">Zamietnuť</span><span class="ui-btn"><svg><use href="#i-check"/></svg>Schváliť</span></span></div>
+                </div>
               </div>
-            </article>
-            <article class="card home-case-card lift-card">
-              <p class="eyebrow">Základná škola</p>
-              <h3>Majetok a poruchy bez strácania informácií</h3>
-              <p>
-                Správa majetku prešla na digitálne hlásenia porúch s jasnou
-                zodpovednosťou a históriou servisov.
-              </p>
-              <div class="result-pills">
-                <span class="result-pill result-pill-good"
-                  >-31% času na nahlásenie a evidenciu</span
-                >
-                <span class="result-pill result-pill-wip"
-                  >+36% rýchlejšie uzatvorenie zásahov</span
-                >
-              </div>
-            </article>
-          </div>
-          <div class="home-media-grid">
-            <article class="card home-app-shot">
-              <button
-                type="button"
-                class="home-app-shot-trigger"
-                data-lightbox-src="assets/images/ziadosti.png"
-                data-lightbox-alt="Ukážka aplikácie pre žiadosti v personálnej agende"
-                aria-label="Otvoriť obrázok žiadostí v galérii"
-              >
-                <img
-                  src="assets/images/ziadosti.png"
-                  alt="Ukážka aplikácie pre žiadosti v personálnej agende"
-                  loading="lazy"
-                />
-              </button>
-              <p>
-                Ukážka aplikácie: žiadosti a schvaľovanie v personálnej agende.
-              </p>
-            </article>
-            <article class="card home-app-shot">
-              <button
-                type="button"
-                class="home-app-shot-trigger"
-                data-lightbox-src="assets/images/objednavky.png"
-                data-lightbox-alt="Ukážka aplikácie objednávok a ekonomického toku"
-                aria-label="Otvoriť obrázok objednávok v galérii"
-              >
-                <img
-                  src="assets/images/objednavky.png"
-                  alt="Ukážka aplikácie objednávok a ekonomického toku"
-                  loading="lazy"
-                />
-              </button>
-              <p>
-                Ukážka aplikácie: objednávky, faktúry a ekonomický workflow.
-              </p>
-            </article>
-            <article class="card home-app-shot">
-              <button
-                type="button"
-                class="home-app-shot-trigger"
-                data-lightbox-src="assets/images/majetok.png"
-                data-lightbox-alt="Ukážka aplikácie evidencie majetku školy"
-                aria-label="Otvoriť obrázok majetku v galérii"
-              >
-                <img
-                  src="assets/images/majetok.png"
-                  alt="Ukážka aplikácie evidencie majetku školy"
-                  loading="lazy"
-                />
-              </button>
-              <p>Ukážka aplikácie: majetok, poruchy a servisné zásahy.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4) Kedy sú prvé výsledky -->
-      <section class="section alt reveal">
-        <div class="container">
-          <h2>Kedy sú viditeľné prvé výsledky</h2>
-          <div class="home-time-grid">
-            <article class="card lift-card">
-              <h3>Prvých 14 dní</h3>
-              <ul class="check-list">
-                <li>jednotné formuláre pre prioritné procesy</li>
-                <li>zníženie neúplných podaní a otázok cez e-mail</li>
-                <li>prvý prehľad otvorených požiadaviek pre vedenie</li>
-              </ul>
-            </article>
-            <article class="card lift-card">
-              <h3>30 až 45 dní</h3>
-              <ul class="check-list">
-                <li>stabilné schvaľovanie s notifikáciami a termínmi</li>
-                <li>merateľný pokles meškaní a ručných dohľadávaní</li>
-                <li>prehľadné reporty podľa role a agendy</li>
-              </ul>
-            </article>
-            <article class="card lift-card">
-              <h3>60 až 90 dní</h3>
-              <ul class="check-list">
-                <li>plná prevádzka kľúčových modulov</li>
-                <li>štandardizované procesy naprieč oddeleniami</li>
-                <li>dlhodobo nižšia administratívna záťaž</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5) Postup nasadzovania -->
-      <section class="section reveal">
-        <div class="container">
-          <h2>Postup nasadzovania krok za krokom</h2>
-          <div class="home-rollout-grid">
-            <article class="card home-phase-card lift-card">
-              <p class="home-phase-tag">Týždeň 1</p>
-              <h3>Diagnostika a priority</h3>
-              <p>
-                Mapujeme slabé miesta a vyberáme procesy s najvyšším dopadom.
-              </p>
-            </article>
-            <article class="card home-phase-card lift-card">
-              <p class="home-phase-tag">Týždeň 2-3</p>
-              <h3>Pilotné nasadenie</h3>
-              <p>
-                Spúšťame prvé workflowy a validujeme reálne používanie tímom.
-              </p>
-            </article>
-            <article class="card home-phase-card lift-card">
-              <p class="home-phase-tag">Mesiac 2</p>
-              <h3>Rozšírenie na ďalšie agendy</h3>
-              <p>
-                Pripájame ekonomiku, majetok a pedagogické procesy podľa plánu.
-              </p>
-            </article>
-            <article class="card home-phase-card lift-card">
-              <p class="home-phase-tag">Mesiac 3</p>
-              <h3>Stabilizácia a reporting</h3>
-              <p>
-                Vyhodnocujeme výsledky a nastavujeme pravidelný manažérsky
-                prehľad.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 6) Moduly -->
-      <section class="section alt reveal">
-        <div class="container">
-          <h2>Moduly, ktoré viete nasadzovať podľa priority</h2>
-          <p class="blue-heading home-modules-subtitle">
-            Vyberte oblasť, kde škola potrebuje najrýchlejší posun.
-          </p>
-          <div class="module-grid module-grid-five home-module-grid">
-            <a
-              class="module module-rich lift-card"
-              href="pages/modul-personalna-agenda.html"
-            >
-              <strong class="module-rich-title">Personálna agenda</strong>
-              <span class="module-rich-summary"
-                >Nábor, zmluvy, absencie, rozvoj zamestnancov.</span
-              >
-            </a>
-            <a
-              class="module module-rich lift-card"
-              href="pages/modul-ekonomicka-agenda.html"
-            >
-              <strong class="module-rich-title">Ekonomická agenda</strong>
-              <span class="module-rich-summary"
-                >Faktúry, objednávky, rozpočty, prehľad záväzkov.</span
-              >
-            </a>
-            <a
-              class="module module-rich lift-card"
-              href="pages/modul-majetok-infrastruktura.html"
-            >
-              <strong class="module-rich-title"
-                >Majetok a infraštruktúra</strong
-              >
-              <span class="module-rich-summary"
-                >Evidencia majetku, údržba, poruchy, investície.</span
-              >
-            </a>
-            <a
-              class="module module-rich lift-card"
-              href="pages/modul-pedagogicka-agenda.html"
-            >
-              <strong class="module-rich-title">Pedagogická agenda</strong>
-              <span class="module-rich-summary"
-                >Plány, sylaby, predmety, koordinácia výučby.</span
-              >
-            </a>
-            <a
-              class="module module-rich lift-card"
-              href="pages/modul-spatna-vazba-porady.html"
-            >
-              <strong class="module-rich-title">Spätná väzba a porady</strong>
-              <span class="module-rich-summary"
-                >Podnety, úlohy, porady a interná komunikácia.</span
-              >
-            </a>
-          </div>
-          <div class="hero-cta">
-            <a class="btn btn-ghost" href="pages/moduly.html"
-              >Porovnať moduly detailne</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- 7) Čo získa vedenie -->
-      <section class="section reveal">
-        <div class="container">
-          <h2>Aké výsledky získa vedenie školy</h2>
-          <div class="home-impact-grid">
-            <article class="card lift-card">
-              <h3>Riaditeľ školy</h3>
-              <p class="home-proof-metric">
-                +1 dashboard pre kľúčové rozhodnutia
-              </p>
-              <p>Aktuálne stavy agend bez čakania na manuálne reporty.</p>
-            </article>
-            <article class="card lift-card">
-              <h3>Zástupca riaditeľa</h3>
-              <p class="home-proof-metric">-32% operatívnych eskalácií</p>
-              <p>
-                Jasné termíny, zodpovednosti a menej výpadkov v koordinácii.
-              </p>
-            </article>
-            <article class="card lift-card">
-              <h3>Ekonomické oddelenie</h3>
-              <p class="home-proof-metric">
-                +40% rýchlejšia dohľadateľnosť dokladov
-              </p>
-              <p>Prepojené dokumenty a história krokov v jednom systéme.</p>
-            </article>
-          </div>
-          <div class="home-media-grid home-media-grid-single">
-            <article class="card home-app-shot">
-              <button
-                type="button"
-                class="home-app-shot-trigger"
-                data-lightbox-src="assets/images/homepage.png"
-                data-lightbox-alt="Ukážka homepage dashboardu pre vedenie školy"
-                aria-label="Otvoriť obrázok homepage dashboardu v galérii"
-              >
-                <img
-                  src="assets/images/homepage.png"
-                  alt="Ukážka homepage dashboardu pre vedenie školy"
-                  loading="lazy"
-                />
-              </button>
-              <p>
-                Ukážka aplikácie: homepage dashboard a súhrn pre vedenie školy.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 8) Porovnanie stavu -->
-      <section class="section alt reveal">
-        <div class="container">
-          <h2>Pred nasadením a po nasadení</h2>
-          <div class="compare-grid">
-            <article class="compare-card compare-card-muted">
-              <h3>Pred nasadením</h3>
-              <ul>
-                <li>stavy procesov sú roztrúsené v e-mailoch a tabuľkách</li>
-                <li>zodpovednosti sa často dohadujú manuálne</li>
-                <li>chýba jednotná história rozhodnutí</li>
-              </ul>
-            </article>
-            <article class="compare-card compare-card-strong">
-              <h3>Po nasadení</h3>
-              <ul>
-                <li>procesy majú jasný stav, termín a vlastníka</li>
-                <li>
-                  vedenie sleduje priebeh naprieč oddeleniami v reálnom čase
-                </li>
-                <li>škola pracuje s rovnakými dátami v jednom prostredí</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- 9) Prechod na cenník -->
-      <section class="section reveal">
-        <div class="container">
-          <h2>Vyberte si tempo zavedenia</h2>
-          <p class="section-lead">
-            Každá škola štartuje inde. Začnite pilotom a po potvrdení výsledkov
-            riešenie rozšírte na ďalšie agendy.
-          </p>
-          <article class="card lift-card">
-            <h3>Starter, Standard, Premium</h3>
-            <p>
-              Rozsah nasadenia prispôsobíme veľkosti školy a tomu, ktoré procesy
-              chcete riešiť ako prvé.
-            </p>
-            <div class="hero-cta">
-              <a class="btn" href="pages/cennik.html"
-                >Pozrieť cenník a balíky</a
-              >
             </div>
-          </article>
-        </div>
-      </section>
 
-      <!-- 11) CTA -->
-      <section class="section cta reveal">
-        <div class="container">
-          <h2>
-            Naplánujme nasadenie tak, aby ste prvé výsledky videli do 2 až 4
-            týždňov
-          </h2>
-          <p class="section-lead">
-            Na úvodnom stretnutí pripravíme realistický rollout, vyberieme prvé
-            procesy a nastavíme metriky, podľa ktorých budete vedieť zhodnotiť
-            dopad digitalizácie.
-          </p>
-          <div class="hero-cta">
-            <a class="btn" href="pages/kontakt.html"
-              >Požiadať o návrh nasadenia</a
-            >
-            <a class="btn btn-ghost" href="pages/vyhody-pre-vas.html"
-              >Pozrieť výhody podľa role</a
-            >
+            <!-- Ekonomická -->
+            <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+              <div>
+                <h3>Ekonomická agenda</h3>
+                <p>V každom momente viete, čo škola objednala, na základe akej zmluvy, koľko to stojí a kde je doklad.</p>
+                <ul class="checklist">
+                  <li><span><b>Zmluvy</b> s platnosťou, schvaľovaním a podpisom v jasných krokoch.</span></li>
+                  <li><span><b>Objednávky</b> s položkami a automatickým súčtom.</span></li>
+                  <li><span><b>Faktúry</b> s poradovým číslom podľa typu, napríklad DF2026/0014.</span></li>
+                  <li><span><b>Dodávatelia a kontakty</b> na jednom mieste, s overením IČO a DIČ.</span></li>
+                </ul>
+              </div>
+              <div class="app" aria-hidden="true">
+                <div class="app__bar"><svg viewBox="0 0 512 512"><use href="#i-hub"/></svg><span>Zmluvy</span><span>Ekonomická agenda</span></div>
+                <div class="app__body">
+                  <div class="app__title"><h4>Servis kopírovacích strojov</h4><span class="pill pill--wait">Na schválení</span></div>
+                  <div class="steps-ui"><span class="done">Návrh</span><span class="now">Schválenie</span><span>Podpis</span><span>Platná</span></div>
+                  <div class="kv">
+                    <div><small>Dodávateľ</small><b>Kancel Print s.r.o.</b></div>
+                    <div><small>Suma</small><b>2 480,00 €</b></div>
+                    <div><small>Platnosť</small><b>1. 1. – 31. 12. 2027</b></div>
+                    <div><small>Zodpovedá</small><b>Ing. Eva Šimková</b></div>
+                  </div>
+                  <span class="label-ui">Prepojené doklady</span>
+                  <ul class="mini-list">
+                    <li><span>Objednávka BV2026/0007 · 640,00 €</span><span class="pill pill--info">Objednaná</span></li>
+                    <li><span>Faktúra DF2026/0012 · 213,40 €</span><span class="pill pill--ok">Schválená</span></li>
+                    <li><span>Faktúra DF2026/0014 · 213,40 €</span><span class="pill pill--wait">Čaká</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Majetok -->
+            <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+              <div>
+                <h3>Majetok a infraštruktúra</h3>
+                <p>Celý majetok školy od budov cez učebne až po jednotlivé zariadenia, s tým, kto zaň zodpovedá.</p>
+                <ul class="checklist">
+                  <li><span><b>Evidencia majetku</b> s evidenčným číslom, cenou a dátumom nadobudnutia.</span></li>
+                  <li><span><b>Časti školy, učebne a miestnosti</b>, aby ste vedeli, čo kde je.</span></li>
+                  <li><span><b>Dopravné prostriedky</b> s vlastnými údajmi a dokumentmi.</span></li>
+                  <li><span><b>Hlásenie poškodenia</b> jedným tlačidlom priamo z karty majetku.</span></li>
+                </ul>
+              </div>
+              <div class="app" aria-hidden="true">
+                <div class="app__bar"><svg viewBox="0 0 512 512"><use href="#i-hub"/></svg><span>Majetok a vybavenie</span><span>Majetok</span></div>
+                <div class="app__body">
+                  <div class="app__title"><h4>Projektor Epson EB-W51</h4><span class="pill pill--ok">Používané</span></div>
+                  <div class="kv">
+                    <div><small>Evidenčné číslo</small><b>MAJ-0142</b></div>
+                    <div><small>Typ</small><b>Didaktická technika</b></div>
+                    <div><small>Umiestnenie</small><b>Učebňa 214</b></div>
+                    <div><small>Časť školy</small><b>Hlavná budova</b></div>
+                    <div><small>Zodpovedá</small><b>Mgr. Ján Novák</b></div>
+                    <div><small>Nadobudnuté</small><b>3. 9. 2024 · 589 €</b></div>
+                  </div>
+                  <span class="label-ui">Dokumenty</span>
+                  <ul class="mini-list">
+                    <li><span>Záručný list.pdf</span><span class="meta">PDF</span></li>
+                    <li><span>Servisný protokol – výmena lampy.pdf</span><span class="meta">PDF</span></li>
+                  </ul>
+                  <div class="ui-actions"><span class="ui-btn ui-btn--light">Označiť ako poškodené</span><span class="ui-btn">Upraviť</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pedagogická -->
+            <div class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
+              <div>
+                <h3>Pedagogická agenda</h3>
+                <p>Plánovanie výučby a materiály učiteľov v jednom bezpečnom úložisku namiesto rozhádzaných priečinkov.</p>
+                <ul class="checklist">
+                  <li><span><b>Študijné programy, predmety a sylaby</b> prepojené medzi sebou.</span></li>
+                  <li><span><b>Plány vyučovania</b> s témami pre konkrétnu triedu a predmet.</span></li>
+                  <li><span><b>Triedy a žiaci</b> s kontrolou rodného čísla pri zápise.</span></li>
+                  <li><span><b>Dokumenty žiakov a plánov</b> v knižniciach s obmedzeným prístupom.</span></li>
+                </ul>
+              </div>
+              <div class="app" aria-hidden="true">
+                <div class="app__bar"><svg viewBox="0 0 512 512"><use href="#i-hub"/></svg><span>Plány vyučovania</span><span>Pedagogická agenda</span></div>
+                <div class="app__body">
+                  <div class="app__title"><h4>Programovanie · 3.A</h4><span class="meta">2026/2027</span></div>
+                  <div class="kv">
+                    <div><small>Študijný program</small><b>Informačné technológie</b></div>
+                    <div><small>Vyučujúci</small><b>Ing. Martin Kollár</b></div>
+                  </div>
+                  <span class="label-ui">Témy</span>
+                  <ul class="mini-list">
+                    <li><span>September · Algoritmy a vývojové diagramy</span><span class="pill pill--ok">Zverejnené</span></li>
+                    <li><span>Október · Premenné a dátové typy</span><span class="pill pill--ok">Zverejnené</span></li>
+                    <li><span>November · Podmienky a cykly</span><span class="pill pill--info">Rozpracované</span></li>
+                    <li><span>December · Funkcie a moduly</span><span class="pill pill--info">Rozpracované</span></li>
+                  </ul>
+                  <span class="label-ui">Materiály</span>
+                  <ul class="mini-list"><li><span>Pracovný list – cykly.docx</span><span class="meta">Word</span></li></ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Porady -->
+            <div class="panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" hidden>
+              <div>
+                <h3>Porady a spätná väzba</h3>
+                <p>Porady s jasnou agendou a výstupmi a priestor, kde zamestnanci môžu niečo navrhnúť.</p>
+                <ul class="checklist">
+                  <li><span><b>Porady</b> s agendou, pozvanými a dokumentmi na jednom mieste.</span></li>
+                  <li><span><b>Zápisnica</b> vygenerovaná zo šablóny do Wordu.</span></li>
+                  <li><span><b>Návrhy, podnety a pripomienky</b> od zamestnancov aj s odpoveďou.</span></li>
+                  <li><span><b>Zamestnanec mesiaca</b> na úvodnej stránke hubu.</span></li>
+                </ul>
+              </div>
+              <div class="app" aria-hidden="true">
+                <div class="app__bar"><svg viewBox="0 0 512 512"><use href="#i-hub"/></svg><span>Porady</span><span>Spätná väzba a porady</span></div>
+                <div class="app__body">
+                  <div class="app__title"><h4>Pedagogická rada – november</h4><span class="pill pill--info">Naplánovaná</span></div>
+                  <div class="kv">
+                    <div><small>Termín</small><b>12. 11. 2026 · 14:00</b></div>
+                    <div><small>Miesto</small><b>Zborovňa</b></div>
+                  </div>
+                  <div class="card-ui app__title"><span class="avatars"><span>MH</span><span>PK</span><span>JM</span><span>TB</span></span><span class="meta">a ďalších 18 pozvaných</span></div>
+                  <span class="label-ui">Agenda</span>
+                  <ul class="mini-list">
+                    <li><span>1. Hodnotenie prvého štvrťroka</span></li>
+                    <li><span>2. Deň otvorených dverí</span></li>
+                    <li><span>3. Rôzne</span></li>
+                  </ul>
+                  <div class="ui-actions"><span class="ui-btn"><svg><use href="#i-doc"/></svg>Vygenerovať zápisnicu</span></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p>Digitálny hub školy</p>
-        <a href="pages/ochrana-osobnych-udajov.html">Ochrana osobných údajov</a>
       </div>
-    </footer>
+    </section>
 
-    <script src="assets/js/script.js"></script>
-  </body>
+    <!-- Ako to funguje -->
+    <section class="section section--dark" id="ako-to-funguje">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Ako to funguje</span>
+          <h2>Takto prejde hubom jedna žiadosť</h2>
+          <p>Rovnako fungujú zmluvy, faktúry aj objednávky. Nikto nič nepreposiela a nikto nemusí nikoho naháňať.</p>
+        </div>
+
+        <ol class="flow" data-flow>
+          <li class="flow__step reveal">
+            <span class="flow__num"><svg aria-hidden="true"><use href="#i-form"/></svg></span>
+            <h3>Zamestnanec vyplní formulár</h3>
+            <p>Typ žiadosti, termín, poznámka. Formulár sám skontroluje, či nič nechýba.</p>
+            <span class="where">Hub · Teams</span>
+          </li>
+          <li class="flow__step reveal" data-delay="1">
+            <span class="flow__num"><svg aria-hidden="true"><use href="#i-send"/></svg></span>
+            <h3>Hub ju pošle správnemu človeku</h3>
+            <p>Podľa typu žiadosti nájde schvaľovateľa a pošle mu upozornenie.</p>
+            <span class="where">Outlook</span>
+          </li>
+          <li class="flow__step reveal" data-delay="2">
+            <span class="flow__num"><svg aria-hidden="true"><use href="#i-usercheck"/></svg></span>
+            <h3>Schvaľovateľ rozhodne</h3>
+            <p>Otvorí detail žiadosti a jedným tlačidlom ju schváli alebo zamietne.</p>
+            <span class="where">Hub</span>
+          </li>
+          <li class="flow__step reveal" data-delay="3">
+            <span class="flow__num"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>
+            <h3>Všetci vidia výsledok</h3>
+            <p>Žiadateľ dostane oznámenie, stav sa zapíše a dokumenty sa uložia k záznamu.</p>
+            <span class="where">Outlook · Hub</span>
+          </li>
+        </ol>
+
+        <div class="auto-grid">
+          <article class="auto reveal"><i><svg aria-hidden="true"><use href="#i-hash"/></svg></i><h3>Čísla dokladov</h3><p>Faktúry a objednávky dostanú poradové číslo podľa typu a roka.</p></article>
+          <article class="auto reveal" data-delay="1"><i><svg aria-hidden="true"><use href="#i-doc"/></svg></i><h3>Dokumenty zo šablón</h3><p>Cestovný príkaz alebo zápisnicu z porady pripraví hub do Wordu.</p></article>
+          <article class="auto reveal" data-delay="2"><i><svg aria-hidden="true"><use href="#i-lock"/></svg></i><h3>Oprávnenia podľa role</h3><p>Prístup k záznamom a dokumentom sa nastaví sám podľa toho, kto na nich pracuje.</p></article>
+          <article class="auto reveal"><i><svg aria-hidden="true"><use href="#i-bell"/></svg></i><h3>Upozornenia</h3><p>E-mail príde vtedy, keď je na vás rad, napríklad pri schvaľovaní alebo novej úlohe.</p></article>
+          <article class="auto reveal" data-delay="1"><i><svg aria-hidden="true"><use href="#i-calc"/></svg></i><h3>Výpočty</h3><p>Dni absencie, súčty objednávok či počty žiakov v triede sa dopočítajú samé.</p></article>
+          <article class="auto reveal" data-delay="2"><i><svg aria-hidden="true"><use href="#i-shield"/></svg></i><h3>Kontrola údajov</h3><p>Rodné číslo, IČO, DIČ alebo nadväznosť dátumov hub overí pred uložením.</p></article>
+        </div>
+
+        <div class="stats reveal">
+          <div class="stat"><b data-count="5">5</b><span>prepojených modulov</span></div>
+          <div class="stat"><b data-count="50" data-suffix="+">50+</b><span>zoznamov a knižníc</span></div>
+          <div class="stat"><b data-count="200" data-suffix="+">200+</b><span>formulárov</span></div>
+          <div class="stat"><b data-count="80" data-suffix="+">80+</b><span>automatizácií na pozadí</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pre koho -->
+    <section class="section" id="pre-koho">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Pre koho</span>
+          <h2>Každý v škole vidí to, čo potrebuje</h2>
+          <p>Úvodná stránka hubu ukáže každému jeho úlohy a agendu. Nič navyše.</p>
+        </div>
+        <div class="roles">
+          <article class="role reveal">
+            <div class="role__head"><span class="role__icon"><svg aria-hidden="true"><use href="#i-dash"/></svg></span><h3>Riaditeľ a vedenie</h3></div>
+            <ul><li>Čo čaká na vaše rozhodnutie, na jednom mieste</li><li>Schválenie jedným klikom</li><li>Prehľad o poradách, úlohách a termínoch</li></ul>
+          </article>
+          <article class="role reveal" data-delay="1">
+            <div class="role__head"><span class="role__icon"><svg aria-hidden="true"><use href="#i-calendar"/></svg></span><h3>Zástupca riaditeľa</h3></div>
+            <ul><li>Absencie a dovolenky zamestnancov</li><li>Plány vyučovania a predmety</li><li>Porady s agendou a výstupmi</li></ul>
+          </article>
+          <article class="role reveal" data-delay="2">
+            <div class="role__head"><span class="role__icon"><svg aria-hidden="true"><use href="#i-euro"/></svg></span><h3>Ekonóm</h3></div>
+            <ul><li>Zmluvy, objednávky a faktúry prepojené</li><li>Čísla dokladov sa pridelia samé</li><li>Dodávatelia a kontakty pohromade</li></ul>
+          </article>
+          <article class="role reveal">
+            <div class="role__head"><span class="role__icon"><svg aria-hidden="true"><use href="#i-cap"/></svg></span><h3>Učiteľ</h3></div>
+            <ul><li>Žiadosť o voľno alebo cestu za pár minút</li><li>Plány vyučovania a materiály na jednom mieste</li><li>Moje úlohy hneď na úvodnej stránke</li></ul>
+          </article>
+          <article class="role reveal" data-delay="1">
+            <div class="role__head"><span class="role__icon"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span><h3>Správca majetku</h3></div>
+            <ul><li>Majetok podľa budov a miestností</li><li>Nahlásené poškodenia na jednom mieste</li><li>Dopravné prostriedky s dokumentmi</li></ul>
+          </article>
+          <article class="role reveal" data-delay="2">
+            <div class="role__head"><span class="role__icon"><svg aria-hidden="true"><use href="#i-users"/></svg></span><h3>Personalista</h3></div>
+            <ul><li>Evidencia zamestnancov a pozícií</li><li>Vzdelávanie a pracovné cesty</li><li>Dokumenty zamestnancov s obmedzeným prístupom</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Microsoft 365 -->
+    <section class="section section--alt" id="bezpecnost">
+      <div class="container m365">
+        <div class="reveal">
+          <span class="eyebrow">Postavené na Microsoft 365</span>
+          <h2 style="margin-top:16px;font-size:clamp(30px,3.8vw,46px)">Nový systém, ktorý nie je ďalší systém</h2>
+          <p style="margin-top:18px;font-size:18px;color:var(--muted)">Hub beží v SharePointe vašej školy. Zamestnanci sa nemusia učiť nové prostredie ani pamätať nové heslo.</p>
+          <div class="m365__list" style="margin-top:32px">
+            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-layers"/></svg></i><div><h3>Stavia na tom, čo už máte</h3><p>SharePoint, Teams a Outlook sú súčasťou Microsoft 365 pre školy.</p></div></div>
+            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-db"/></svg></i><div><h3>Dáta zostávajú vo vašej škole</h3><p>Záznamy aj dokumenty sú uložené v SharePointe vašej školy.</p></div></div>
+            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-login"/></svg></i><div><h3>Prihlásenie školským účtom</h3><p>Rovnako ako do Teams alebo Outlooku. Žiadne nové heslá.</p></div></div>
+            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-lock"/></svg></i><div><h3>Každý vidí len svoje</h3><p>Oprávnenia podľa role. Učiteľ nevidí faktúry, ekonóm nevidí dokumenty žiakov.</p></div></div>
+          </div>
+        </div>
+        <div class="stack reveal" data-delay="1" aria-hidden="true">
+          <div class="stack__layer stack__layer--hub"><small>Vaša agenda</small><b>Digitálny hub školy</b><div class="stack__chips"><span style="background:rgba(2,20,49,.1)">5 modulov</span><span style="background:rgba(2,20,49,.1)">schvaľovanie</span><span style="background:rgba(2,20,49,.1)">automatizácie</span></div></div>
+          <div class="stack__layer"><small>Formuláre a automatizácie</small><b>Skybow Solution Studio</b></div>
+          <div class="stack__layer"><small>Microsoft 365 vašej školy</small><b>Prostredie, ktoré poznáte</b><div class="stack__chips"><span>SharePoint</span><span>Teams</span><span>Outlook</span></div></div>
+          <p class="stack__note">Nič sa neinštaluje do počítačov. Hub otvoríte v prehliadači alebo ako kartu v Teams.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zriaďovateľ -->
+    <section class="section" id="zriadovatel">
+      <div class="container">
+        <div class="founder reveal">
+          <div>
+            <span class="eyebrow">Pre zriaďovateľa a kraj</span>
+            <h2>Jeden hub pre všetky vaše školy</h2>
+            <p>Vývoj sa zaplatí raz a každá ďalšia škola už platí hlavne nasadenie. Všetky školy pracujú s rovnakými procesmi a rovnakou evidenciou.</p>
+            <ul class="checklist" style="margin-top:24px">
+              <li><span>Čím viac škôl, tým nižšia cena pre každú z nich</span></li>
+              <li><span>Rovnaké procesy, formuláre a postupy na každej škole</span></li>
+              <li><span>Možnosť spoločnej licencie Skybow s objemovou zľavou</span></li>
+            </ul>
+            <a class="btn btn--primary" href="#kontakt" data-audience="Zriaďovateľ">Chcem ponuku pre zriaďovateľa <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="schools" aria-hidden="true" data-schools>
+            <span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span>
+            <span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span>
+            <span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span><span><svg><use href="#i-school"/></svg></span>
+            <p class="schools__caption">Jedno riešenie, nasadené škola po škole</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nasadenie -->
+    <section class="section section--alt" id="nasadenie">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Nasadenie</span>
+          <h2>Od ukážky po fungujúci hub</h2>
+          <p>Rozsah prvej fázy dohodneme spolu. Nemusíte začínať všetkým naraz.</p>
+        </div>
+        <ol class="timeline">
+          <li class="tl reveal"><span class="tl__n">1</span><h3>Ukážka</h3><p>Za 30 minút vám ukážem hub s ukážkovými dátami a prejdeme, čo vaša škola potrebuje.</p></li>
+          <li class="tl reveal" data-delay="1"><span class="tl__n">2</span><h3>Prispôsobenie</h3><p>Nastavíme pozície a schvaľovateľov, číselníky a oprávnenia. Doplníme úvodné dáta z vašich tabuliek.</p></li>
+          <li class="tl reveal" data-delay="2"><span class="tl__n">3</span><h3>Nasadenie a školenie</h3><p>Hub nainštalujem do Microsoft 365 vašej školy a zaškolím vedenie aj zamestnancov.</p></li>
+          <li class="tl reveal" data-delay="3"><span class="tl__n">4</span><h3>Podpora</h3><p>Opravy, drobné úpravy a aktualizácie pri zmenách v Microsoft 365.</p></li>
+        </ol>
+        <div class="needs reveal">
+          <div><h3>Čo budem potrebovať od vás</h3><p>Väčšinu z toho škola má. Zvyšok spolu pripravíme pri prispôsobení.</p></div>
+          <ul class="checklist">
+            <li><span>Microsoft 365 so SharePoint Online</span></li>
+            <li><span>Správcu Microsoft 365 alebo prístup na nastavenie</span></li>
+            <li><span>Zoznam zamestnancov a ich pozícií</span></li>
+            <li><span>Kontaktnú osobu pre otázky počas nasadenia</span></li>
+          </ul>
+        </div>
+
+        <div class="section-head reveal" id="cena" style="margin-top:clamp(72px,9vw,112px)">
+          <span class="eyebrow">Cena</span>
+          <h2>Z čoho sa skladá cena</h2>
+          <p>Konkrétnu sumu vám pripravím po ukážke, podľa veľkosti školy a rozsahu modulov.</p>
+        </div>
+        <div class="price">
+          <article class="price__card price__card--accent reveal">
+            <span class="price__type">Jednorazovo</span>
+            <h3>Nasadenie</h3>
+            <p>Hub pripravený pre vašu školu.</p>
+            <ul class="checklist"><li><span>Inštalácia do vášho Microsoft 365</span></li><li><span>Prispôsobenie a číselníky</span></li><li><span>Naplnenie úvodných dát</span></li><li><span>Školenie zamestnancov</span></li></ul>
+          </article>
+          <article class="price__card reveal" data-delay="1">
+            <span class="price__type">Ročne</span>
+            <h3>Podpora a údržba</h3>
+            <p>Aby hub fungoval aj o rok.</p>
+            <ul class="checklist"><li><span>Opravy a drobné úpravy</span></li><li><span>Aktualizácie pri zmenách Microsoft 365</span></li><li><span>Pomoc používateľom</span></li></ul>
+          </article>
+          <article class="price__card reveal" data-delay="2">
+            <span class="price__type">Ročne</span>
+            <h3>Licencia Skybow</h3>
+            <p>Platforma, na ktorej bežia formuláre a automatizácie.</p>
+            <ul class="checklist"><li><span>Podľa počtu zamestnancov, ktorí hub používajú</span></li><li><span>Žiaci sa do licencie nepočítajú</span></li></ul>
+          </article>
+        </div>
+        <div class="price-note reveal">
+          <i><svg aria-hidden="true"><use href="#i-layers"/></svg></i>
+          <p><b>SharePoint, Teams a Outlook už máte</b> v Microsoft 365, takže za ne neplatíte nič navyše. Pri spoločnom nákupe viacerých škôl cez zriaďovateľa vychádza cena na jednu školu výrazne nižšie.</p>
+          <a class="btn btn--primary" href="#kontakt">Vyžiadať ponuku</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- O mne -->
+    <section class="section" id="o-mne">
+      <div class="container">
+        <div class="about reveal">
+          <div class="about__avatar" aria-hidden="true">DT</div>
+          <div>
+            <span class="eyebrow">Za riešením</span>
+            <h2>Hub som navrhol a postavil od nuly</h2>
+            <p>
+              Som David Trebatický. Digitálny hub školy som navrhol od analýzy procesov vo FigJame cez dizajn
+              vo Figme až po hotové riešenie v SharePointe a Skybow. Vznikol v prostredí strednej odbornej
+              školy, s ktorou teraz pripravujem pilotné nasadenie.
+            </p>
+            <p>Ukážku vám predvediem osobne a na otázky odpovedám priamo ja.</p>
+            <div class="about__links">
+              <a class="btn btn--blue btn--sm" href="#kontakt">Dohodnúť ukážku</a>
+              <a class="btn btn--ghost btn--sm" href="https://www.linkedin.com/in/trebatickydavid/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Otázky</span>
+          <h2>Čo sa zvyčajne pýtajú školy</h2>
+        </div>
+        <div class="faq reveal">
+          <details>
+            <summary>Čo musí škola mať, aby hub fungoval?</summary>
+            <p>Microsoft 365 so SharePoint Online, ktorý má väčšina škôl v rámci licencie pre školstvo, a licenciu Skybow. Do počítačov sa nič neinštaluje.</p>
+          </details>
+          <details>
+            <summary>Kde sú uložené naše dáta?</summary>
+            <p>Všetky záznamy aj dokumenty sú uložené v SharePointe vašej školy, v Microsoft 365, ktorý spravujete vy.</p>
+          </details>
+          <details>
+            <summary>Čo je Skybow a prečo treba licenciu?</summary>
+            <p>Skybow Solution Studio je nadstavba SharePointu. Vďaka nej fungujú formuláre, schvaľovanie a automatizácie hubu. Licencuje sa ročne podľa počtu zamestnancov, ktorí hub používajú.</p>
+          </details>
+          <details>
+            <summary>Zvládnu to aj menej technickí kolegovia?</summary>
+            <p>Áno. Pracuje sa vo formulároch v prostredí Microsoft 365, ktoré už poznajú, a každý vidí len svoje úlohy. Súčasťou nasadenia je školenie.</p>
+          </details>
+          <details>
+            <summary>Dá sa hub prispôsobiť našej škole?</summary>
+            <p>Áno. Pozície a schvaľovatelia, číselníky, typy žiadostí, šablóny dokumentov aj oprávnenia sa nastavujú podľa vás. Väčšie úpravy nacením zvlášť.</p>
+          </details>
+          <details>
+            <summary>Čo s údajmi, ktoré už máme v Exceli?</summary>
+            <p>Úvodné dáta, napríklad zamestnancov, majetok alebo dodávateľov, vieme pri nasadení naplniť z vašich tabuliek.</p>
+          </details>
+          <details>
+            <summary>Ako je to s ochranou osobných údajov?</summary>
+            <p>Údaje zostávajú v Microsoft 365 školy a prístup k nim riadia oprávnenia podľa role. Podmienky spracúvania osobných údajov upravíme v zmluve pri nasadení.</p>
+          </details>
+          <details>
+            <summary>Funguje hub aj v Teams?</summary>
+            <p>Áno. Hub otvoríte v prehliadači alebo ho pridáte ako kartu do Microsoft Teams.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="section section--dark" id="kontakt">
+      <div class="container contact">
+        <div class="reveal">
+          <span class="eyebrow">Ukážka</span>
+          <h2>Pozrite si hub naživo</h2>
+          <p class="contact__lead">Za 30 minút vám ukážem, ako hub funguje s ukážkovými dátami, a zistíme, čo by vaša škola potrebovala. Online alebo osobne u vás.</p>
+          <div class="contact__direct">
+            <a href="mailto:trebaticky.david@outlook.com"><i><svg aria-hidden="true"><use href="#i-mail"/></svg></i><span><small>E-mail</small><b>trebaticky.david@outlook.com</b></span></a>
+            <a href="tel:+421944021690"><i><svg aria-hidden="true"><use href="#i-phone"/></svg></i><span><small>Telefón</small><b>+421 944 021 690</b></span></a>
+            <div><i><svg aria-hidden="true"><use href="#i-clock"/></svg></i><span><small>Odpoveď</small><b>do 2 pracovných dní</b></span></div>
+          </div>
+        </div>
+
+        <form class="form reveal" data-delay="1" data-contact-form data-contact-endpoint="/api/contact" novalidate>
+          <fieldset class="segmented">
+            <legend class="field" style="padding:0;margin-bottom:8px"><span style="font-size:14px;font-weight:600;color:var(--ink-2)">Píšem za</span></legend>
+            <div class="segmented__opts">
+              <input type="radio" id="aud-skola" name="audience" value="Škola" checked /><label for="aud-skola">Školu</label>
+              <input type="radio" id="aud-zriad" name="audience" value="Zriaďovateľ" /><label for="aud-zriad">Zriaďovateľa</label>
+              <input type="radio" id="aud-ine" name="audience" value="Iné" /><label for="aud-ine">Iné</label>
+            </div>
+          </fieldset>
+          <div class="form__row">
+            <div class="field">
+              <label for="f-name">Meno a priezvisko</label>
+              <input id="f-name" name="contactName" type="text" autocomplete="name" required maxlength="120" />
+            </div>
+            <div class="field">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="160" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-school">Škola alebo organizácia <span>(nepovinné)</span></label>
+            <input id="f-school" name="schoolName" type="text" autocomplete="organization" maxlength="200" />
+          </div>
+          <div class="field">
+            <label for="f-note">Čo vás zaujíma <span>(nepovinné)</span></label>
+            <textarea id="f-note" name="challenge" maxlength="2000" placeholder="Napríklad vhodný termín ukážky alebo agenda, ktorú chcete riešiť ako prvú."></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Webová stránka</label>
+            <input id="f-website" name="companyWebsite" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="formStartTs" data-form-start />
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADEPjV9phobaMViE" data-language="sk" data-theme="light"></div>
+          <div class="form__foot">
+            <button class="btn btn--blue" type="submit">Odoslať žiadosť o ukážku <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+            <p class="form__consent">Odoslaním súhlasíte so spracúvaním údajov podľa <a href="/ochrana-osobnych-udajov.html">zásad ochrany osobných údajov</a>. Ak by formulár nefungoval, napíšte mi na <a href="mailto:trebaticky.david@outlook.com">trebaticky.david@outlook.com</a>.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a class="brand" href="#top">
+        <svg class="brand__mark" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#083f99"/><use href="#i-hub"/></svg>
+        <span class="brand__name">digitálny hub školy</span>
+      </a>
+      <nav class="footer-links" aria-label="Pätička">
+        <a href="#moduly">Čo to vie</a>
+        <a href="#nasadenie">Nasadenie a cena</a>
+        <a href="#faq">Otázky</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="/ochrana-osobnych-udajov.html">Ochrana osobných údajov</a>
+      </nav>
+      <p class="footer-copy">© <span data-year>2026</span> David Trebatický · Digitálny hub školy. Microsoft 365, SharePoint, Teams a Outlook sú ochranné známky spoločnosti Microsoft.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
 </html>
