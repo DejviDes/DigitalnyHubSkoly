@@ -113,11 +113,29 @@
     }
     ecoSelect(0);
 
-    // Odkazy z hero (SharePoint, Teams…) otvoria rovno detail danej aplikácie
+    // Odkazy z hero (SharePoint, Teams…) otvoria rovno detail danej aplikácie.
+    // Skrolujú len tak nízko, aby bol detail celý na obrazovke (na nízkych
+    // displejoch by ho skok na začiatok sekcie odrezal); nadpis ostane, ak sa zmestí.
+    const ecoPanels = eco.querySelector(".eco__panels");
+    const pageTop = (el) => {
+      let y = 0; // offsetTop ignoruje posun z animácie .reveal
+      for (; el; el = el.offsetParent) y += el.offsetTop;
+      return y;
+    };
     document.querySelectorAll("[data-eco-link]").forEach((link) => {
-      link.addEventListener("click", () => {
+      link.addEventListener("click", (e) => {
         const i = ecoTabs.findIndex((t) => t.dataset.app === link.dataset.ecoLink);
-        if (i >= 0) ecoPick(i, false);
+        if (i < 0) return;
+        ecoPick(i, false);
+        const section = document.querySelector(link.hash);
+        if (!section || !ecoPanels) return;
+        e.preventDefault();
+        const offset = (header ? header.offsetHeight : 0) + 12;
+        const panelsTop = pageTop(ecoPanels);
+        const fit = panelsTop + ecoPanels.offsetHeight + 32 - window.innerHeight;
+        const top = Math.min(Math.max(pageTop(section) - offset, fit), panelsTop - offset);
+        history.pushState(null, "", link.hash);
+        window.scrollTo({ top });
       });
     });
   }
