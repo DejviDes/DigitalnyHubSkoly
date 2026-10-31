@@ -198,6 +198,9 @@ h1, h2, h3, h4 {
     radial-gradient(700px 500px at 10% 0%, rgba(27, 80, 165, 0.55), transparent 65%),
     linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
   padding: calc(var(--header-h) + clamp(40px, 7vw, 88px)) 0 clamp(72px, 9vw, 120px);
+  /* Na celú výšku obrazovky, obsah vertikálne v strede; na veľmi vysokých monitoroch najviac 1200 px */
+  min-height: min(100svh, 1200px);
+  display: grid; align-content: center;
 }
 .hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
