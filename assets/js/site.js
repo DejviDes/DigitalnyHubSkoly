@@ -56,6 +56,72 @@
     });
   }
 
+  // Microsoft 365: pavúk aplikácií, detail vybranej aplikácie sa sám strieda,
+  // kým návštevník neklikne
+  const eco = document.querySelector("[data-eco]");
+  if (eco) {
+    const ecoTabs = Array.from(eco.querySelectorAll('[role="tab"]'));
+    const ecoLines = eco.querySelectorAll("[data-eco-line]");
+    let ecoIdx = 0;
+    let ecoTimer = null;
+    let ecoStopped = reduceMotion;
+
+    const ecoSelect = (i, focus) => {
+      ecoIdx = (i + ecoTabs.length) % ecoTabs.length;
+      const app = ecoTabs[ecoIdx].dataset.app;
+      ecoTabs.forEach((t, j) => {
+        const on = j === ecoIdx;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.classList.toggle("is-active", on);
+      });
+      ecoLines.forEach((l) => l.classList.toggle("is-active", l.dataset.ecoLine === app));
+      if (focus) ecoTabs[ecoIdx].focus();
+    };
+    const ecoPause = () => {
+      clearInterval(ecoTimer);
+      ecoTimer = null;
+    };
+    const ecoPlay = () => {
+      if (!ecoStopped && !ecoTimer) ecoTimer = setInterval(() => ecoSelect(ecoIdx + 1), 4500);
+    };
+    const ecoPick = (i, focus) => {
+      ecoStopped = true;
+      ecoPause();
+      ecoSelect(i, focus);
+    };
+
+    ecoTabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => ecoPick(i, false));
+      tab.addEventListener("keydown", (e) => {
+        let next = null;
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") next = i + 1;
+        if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = i - 1;
+        if (e.key === "Home") next = 0;
+        if (e.key === "End") next = ecoTabs.length - 1;
+        if (next !== null) {
+          e.preventDefault();
+          ecoPick(next, true);
+        }
+      });
+    });
+    eco.addEventListener("mouseenter", ecoPause);
+    eco.addEventListener("mouseleave", ecoPlay);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([entry]) => (entry.isIntersecting ? ecoPlay() : ecoPause()), { threshold: 0.4 }).observe(eco);
+    }
+    ecoSelect(0);
+
+    // Odkazy z hero (SharePoint, Teams…) otvoria rovno detail danej aplikácie
+    document.querySelectorAll("[data-eco-link]").forEach((link) => {
+      link.addEventListener("click", () => {
+        const i = ecoTabs.findIndex((t) => t.dataset.app === link.dataset.ecoLink);
+        if (i >= 0) ecoPick(i, false);
+      });
+    });
+  }
+
   // Postupné zobrazovanie sekcií pri scrollovaní
   const reveals = document.querySelectorAll(".reveal");
   if (!reduceMotion && "IntersectionObserver" in window) {

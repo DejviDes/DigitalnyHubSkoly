@@ -106,11 +106,16 @@
             <a class="btn btn--primary" href="#kontakt">Dohodnúť ukážku <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn--ghost-light" href="#moduly">Pozrieť, čo to vie</a>
           </div>
-          <ul class="hero__trust">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>SharePoint, Teams a Outlook</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dáta zostávajú vo vašej škole</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Žiadne nové servery</li>
-          </ul>
+          <div class="hero__apps">
+            <span class="hero__apps-label">Funguje v Microsoft 365 vašej školy</span>
+            <ul>
+              <li><a href="#microsoft-365" data-eco-link="sharepoint"><span class="app-ico"><img src="/assets/images/m365/sharepoint.png" alt="" width="48" height="48"></span>SharePoint</a></li>
+              <li><a href="#microsoft-365" data-eco-link="teams"><span class="app-ico"><img src="/assets/images/m365/teams.png" alt="" width="48" height="48"></span>Teams</a></li>
+              <li><a href="#microsoft-365" data-eco-link="outlook"><span class="app-ico"><img src="/assets/images/m365/outlook.png" alt="" width="48" height="48"></span>Outlook</a></li>
+              <li><a href="#microsoft-365" data-eco-link="word"><span class="app-ico"><img src="/assets/images/m365/word.png" alt="" width="48" height="48"></span>Word</a></li>
+              <li><a href="#microsoft-365" data-eco-link="copilot"><span class="app-ico"><img src="/assets/images/m365/copilot.svg" alt="" width="48" height="48"></span>Copilot</a></li>
+            </ul>
+          </div>
         </div>
 
         <div class="hero__visual" aria-hidden="true">
@@ -153,7 +158,7 @@
     </section>
 
     <!-- Problém -> riešenie -->
-    <section class="section">
+    <section class="section section--alt">
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Prečo hub</span>
@@ -181,6 +186,155 @@
             <div class="compare__divider"></div>
             <div class="compare__row compare__row--after"><span class="compare__tag"><svg aria-hidden="true"><use href="#i-check"/></svg></span><p>Porada má agendu, pozvaných a úlohy s termínom. Zápisnicu vygeneruje hub do Wordu.</p></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Microsoft 365 -->
+    <section class="section section--eco" id="microsoft-365">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <span class="eyebrow">Postavené na Microsoft 365</span>
+          <h2>Žiadna nová aplikácia na učenie</h2>
+          <p>Hub beží v Microsoft 365, ktorý vaša škola už používa. Nič sa neinštaluje a zamestnanci ho nájdu tam, kde už pracujú.</p>
+        </div>
+        <div class="eco reveal" data-eco>
+          <div>
+            <div class="eco__map" role="tablist" aria-label="Aplikácie Microsoft 365">
+              <svg class="eco__lines" viewBox="0 0 520 520" aria-hidden="true">
+                <circle class="ring" cx="260" cy="260" r="190"/>
+                <circle class="ring" cx="260" cy="260" r="112"/>
+                <path id="eco-l-sharepoint" class="line" data-eco-line="sharepoint" d="M260 260 260 70"/>
+                <path id="eco-l-teams" class="line" data-eco-line="teams" d="M260 260 424.54 165"/>
+                <path id="eco-l-outlook" class="line" data-eco-line="outlook" d="M260 260 424.54 355"/>
+                <path id="eco-l-word" class="line" data-eco-line="word" d="M260 260 260 450"/>
+                <path id="eco-l-copilot" class="line" data-eco-line="copilot" d="M260 260 95.46 355"/>
+                <path id="eco-l-account" class="line" data-eco-line="account" d="M260 260 95.46 165"/>
+                <circle class="pulse" data-eco-line="sharepoint" r="4"><animateMotion dur="2.8s" begin="-0.0s" repeatCount="indefinite"><mpath href="#eco-l-sharepoint"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="sharepoint" r="3"><animateMotion dur="2.8s" begin="-1.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#eco-l-sharepoint"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="teams" r="4"><animateMotion dur="3.1s" begin="-0.4s" repeatCount="indefinite"><mpath href="#eco-l-teams"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="teams" r="3"><animateMotion dur="3.1s" begin="-1.8s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#eco-l-teams"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="outlook" r="4"><animateMotion dur="2.6s" begin="-0.8s" repeatCount="indefinite"><mpath href="#eco-l-outlook"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="outlook" r="3"><animateMotion dur="2.6s" begin="-2.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#eco-l-outlook"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="word" r="4"><animateMotion dur="3.3s" begin="-1.2s" repeatCount="indefinite"><mpath href="#eco-l-word"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="word" r="3"><animateMotion dur="3.3s" begin="-2.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#eco-l-word"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="copilot" r="4"><animateMotion dur="2.9s" begin="-1.6s" repeatCount="indefinite"><mpath href="#eco-l-copilot"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="copilot" r="3"><animateMotion dur="2.9s" begin="-3.0s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#eco-l-copilot"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="account" r="4"><animateMotion dur="3.0s" begin="-2.0s" repeatCount="indefinite"><mpath href="#eco-l-account"/></animateMotion></circle>
+                <circle class="pulse" data-eco-line="account" r="3"><animateMotion dur="3.0s" begin="-3.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#eco-l-account"/></animateMotion></circle>
+              </svg>
+              <div class="eco__core" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-hub"/></svg></div>
+              <button class="eco__node" role="tab" id="eco-t-sharepoint" aria-controls="eco-p-sharepoint" aria-selected="true" data-app="sharepoint" style="left:50%;top:13.46%"><span class="app-ico"><img src="/assets/images/m365/sharepoint.png" alt="" width="48" height="48"></span>SharePoint</button>
+              <button class="eco__node" role="tab" id="eco-t-teams" aria-controls="eco-p-teams" aria-selected="false" tabindex="-1" data-app="teams" style="left:81.64%;top:31.73%"><span class="app-ico"><img src="/assets/images/m365/teams.png" alt="" width="48" height="48"></span>Teams</button>
+              <button class="eco__node" role="tab" id="eco-t-outlook" aria-controls="eco-p-outlook" aria-selected="false" tabindex="-1" data-app="outlook" style="left:81.64%;top:68.27%"><span class="app-ico"><img src="/assets/images/m365/outlook.png" alt="" width="48" height="48"></span>Outlook</button>
+              <button class="eco__node" role="tab" id="eco-t-word" aria-controls="eco-p-word" aria-selected="false" tabindex="-1" data-app="word" style="left:50%;top:86.54%"><span class="app-ico"><img src="/assets/images/m365/word.png" alt="" width="48" height="48"></span>Word</button>
+              <button class="eco__node" role="tab" id="eco-t-copilot" aria-controls="eco-p-copilot" aria-selected="false" tabindex="-1" data-app="copilot" style="left:18.36%;top:68.27%"><span class="app-ico"><img src="/assets/images/m365/copilot.svg" alt="" width="48" height="48"></span>Copilot</button>
+              <button class="eco__node" role="tab" id="eco-t-account" aria-controls="eco-p-account" aria-selected="false" tabindex="-1" data-app="account" style="left:18.36%;top:31.73%"><span class="app-ico"><img src="/assets/images/m365/microsoft-365.svg" alt="" width="48" height="48"></span>Školský účet</button>
+            </div>
+            <p class="eco__hint">Kliknite na aplikáciu a pozrite, čo v nej hub robí.</p>
+          </div>
+          <div class="eco__panels">
+            <div class="eco__panel is-active" role="tabpanel" id="eco-p-sharepoint" aria-labelledby="eco-t-sharepoint">
+              <div class="eco__head"><span class="app-ico"><img src="/assets/images/m365/sharepoint.png" alt="" width="48" height="48"></span><span><b>SharePoint</b><small>Tu sú všetky dáta</small></span></div>
+              <h3>Záznamy aj dokumenty zostávajú vo vašej škole</h3>
+              <p>Hub je lokalita v SharePointe vašej školy. Žiadosti, zmluvy, majetok aj zápisnice sú tam, nie na cudzom serveri ani v ďalšej aplikácii.</p>
+              <div class="app app--sharepoint" aria-hidden="true">
+                <div class="app__bar"><span class="app__bar-ico"><img src="/assets/images/m365/sharepoint.png" alt="" width="16" height="16"></span><span>SharePoint</span><span>Digitálny hub školy</span></div>
+                <div class="app__body">
+                  <span class="label-ui">Obsah lokality</span>
+                  <ul class="mini-list">
+                    <li><span>Žiadosti a absencie</span><span class="meta">zoznam</span></li>
+                    <li><span>Zmluvy, objednávky a faktúry</span><span class="meta">zoznamy</span></li>
+                    <li><span>Majetok a miestnosti</span><span class="meta">zoznam</span></li>
+                    <li><span>Zápisnice a dokumenty</span><span class="meta">knižnica</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="eco__panel" role="tabpanel" id="eco-p-teams" aria-labelledby="eco-t-teams">
+              <div class="eco__head"><span class="app-ico"><img src="/assets/images/m365/teams.png" alt="" width="48" height="48"></span><span><b>Teams</b><small>Kde sa stretáva kolektív</small></span></div>
+              <h3>Hub ako karta v tíme zborovne</h3>
+              <p>Pridáte ho do tímu, ktorý učitelia otvárajú každý deň. Žiadosť podajú alebo schvália bez toho, aby z Teams odišli.</p>
+              <div class="app app--teams" aria-hidden="true">
+                <div class="app__bar"><span class="app__bar-ico"><img src="/assets/images/m365/teams.png" alt="" width="16" height="16"></span><span>Teams</span><span>Zborovňa</span></div>
+                <div class="app__body">
+                  <div class="tabs-ui"><span>Príspevky</span><span>Súbory</span><span class="is-on">Hub školy</span></div>
+                  <div class="app__title"><h4>Moje úlohy</h4><span class="meta">2 čakajú</span></div>
+                  <div class="row-ui is-active"><div><b>Schváliť dovolenku</b><small>Martina Horváthová · 18. – 22. 11.</small></div><span class="pill pill--wait">Čaká</span></div>
+                  <div class="row-ui"><div><b>Doplniť plán výučby 3.A</b><small>Termín 15. 11.</small></div><span class="pill pill--info">Úloha</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="eco__panel" role="tabpanel" id="eco-p-outlook" aria-labelledby="eco-t-outlook">
+              <div class="eco__head"><span class="app-ico"><img src="/assets/images/m365/outlook.png" alt="" width="48" height="48"></span><span><b>Outlook</b><small>Kde čítate poštu</small></span></div>
+              <h3>Upozornenie príde samo</h3>
+              <p>Schvaľovateľovi príde e-mail s odkazom priamo na žiadosť. Keď rozhodne, dozvie sa to aj žiadateľ. Nikto nič nepreposiela.</p>
+              <div class="app app--outlook" aria-hidden="true">
+                <div class="app__bar"><span class="app__bar-ico"><img src="/assets/images/m365/outlook.png" alt="" width="16" height="16"></span><span>Outlook</span><span>Doručená pošta</span></div>
+                <div class="app__body">
+                  <div class="card-ui mail-ui">
+                    <div class="mail-ui__from"><span class="mail-ui__avatar"><svg viewBox="0 0 512 512" aria-hidden="true"><use href="#i-hub"/></svg></span><span><b>Digitálny hub školy</b><small>dnes 9:41</small></span></div>
+                    <b class="mail-ui__subject">Čaká na vás: žiadosť o dovolenku</b>
+                    <p>Martina Horváthová žiada o dovolenku 18. – 22. 11. 2026 (5 pracovných dní).</p>
+                    <div class="ui-actions"><span class="ui-btn">Otvoriť žiadosť</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="eco__panel" role="tabpanel" id="eco-p-word" aria-labelledby="eco-t-word">
+              <div class="eco__head"><span class="app-ico"><img src="/assets/images/m365/word.png" alt="" width="48" height="48"></span><span><b>Word</b><small>Kde vznikajú dokumenty</small></span></div>
+              <h3>Dokumenty sa vyplnia samy</h3>
+              <p>Cestovný príkaz alebo zápisnicu z porady pripraví hub zo šablóny vašej školy. Údaje doplní zo záznamu a dokument k nemu uloží.</p>
+              <div class="app app--word" aria-hidden="true">
+                <div class="app__bar"><span class="app__bar-ico"><img src="/assets/images/m365/word.png" alt="" width="16" height="16"></span><span>Word</span><span>Cestovný príkaz.docx</span></div>
+                <div class="app__body">
+                  <div class="doc-ui">
+                    <b class="doc-ui__title">Cestovný príkaz</b>
+                    <div class="kv">
+                      <div><small>Zamestnanec</small><b><mark>Peter Kováč</mark></b></div>
+                      <div><small>Miesto</small><b><mark>Bratislava</mark></b></div>
+                      <div><small>Dátum</small><b><mark>21. 11. 2026</mark></b></div>
+                      <div><small>Doprava</small><b><mark>vlak</mark></b></div>
+                    </div>
+                    <small class="doc-ui__note">Údaje doplnil hub zo žiadosti o pracovnú cestu.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="eco__panel" role="tabpanel" id="eco-p-copilot" aria-labelledby="eco-t-copilot">
+              <div class="eco__head"><span class="app-ico"><img src="/assets/images/m365/copilot.svg" alt="" width="48" height="48"></span><span><b>Copilot</b><small>AI asistent v Microsoft 365</small></span></div>
+              <h3>Copilot pracuje s dokumentmi hubu</h3>
+              <p>Zhrnie zápisnicu z porady, vypíše z nej úlohy alebo pomôže napísať zdôvodnenie žiadosti. Vidí len to, k čomu má používateľ prístup.</p>
+              <div class="app app--copilot" aria-hidden="true">
+                <div class="app__bar"><span class="app__bar-ico"><img src="/assets/images/m365/copilot.svg" alt="" width="16" height="16"></span><span>Copilot</span><span>Microsoft 365</span></div>
+                <div class="app__body chat-ui">
+                  <p class="chat-ui__me">Zhrň zápisnicu z pedagogickej rady a vypíš úlohy.</p>
+                  <div class="chat-ui__ai">
+                    <p>Rada prerokovala plán exkurzií a termíny polročných písomiek. Úlohy:</p>
+                    <ul><li>Doplniť plány výučby do 15. 11.</li><li>Pripraviť rozpis dozorov</li></ul>
+                    <span class="chat-ui__src"><svg aria-hidden="true"><use href="#i-doc"/></svg>Zápisnica – Pedagogická rada november.docx</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="eco__panel" role="tabpanel" id="eco-p-account" aria-labelledby="eco-t-account">
+              <div class="eco__head"><span class="app-ico"><img src="/assets/images/m365/microsoft-365.svg" alt="" width="48" height="48"></span><span><b>Školský účet</b><small>Účet Microsoft 365</small></span></div>
+              <h3>Jedno prihlásenie, oprávnenia podľa role</h3>
+              <p>Do hubu sa prihlásite rovnako ako do Teams. Učiteľka vidí svoje žiadosti a plány, faktúry nie. Keď zamestnanec odíde, správca vypne jeden účet.</p>
+              <div class="app app--account" aria-hidden="true">
+                <div class="app__bar"><span class="app__bar-ico"><img src="/assets/images/m365/microsoft-365.svg" alt="" width="16" height="16"></span><span>Školský účet</span><span>Microsoft 365</span></div>
+                <div class="app__body">
+                  <div class="card-ui profile-ui"><span class="profile-ui__avatar">MH</span><span><b>Martina Horváthová</b><small>učiteľka · m.horvathova@vasaskola.sk</small></span></div>
+                  <span class="label-ui">Čo vidí v hube</span>
+                  <ul class="mini-list">
+                    <li><span>Moje žiadosti</span><span class="pill pill--ok">Prístup</span></li>
+                    <li><span>Plány výučby a porady</span><span class="pill pill--ok">Prístup</span></li>
+                    <li><span>Faktúry a zmluvy</span><span class="pill pill--bad">Bez prístupu</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -471,29 +625,6 @@
       </div>
     </section>
 
-    <!-- Microsoft 365 -->
-    <section class="section section--alt" id="bezpecnost">
-      <div class="container m365">
-        <div class="reveal">
-          <span class="eyebrow">Postavené na Microsoft 365</span>
-          <h2 style="margin-top:16px;font-size:clamp(30px,3.8vw,46px)">Nový systém, ktorý nie je ďalší systém</h2>
-          <p style="margin-top:18px;font-size:18px;color:var(--muted)">Hub beží v SharePointe vašej školy. Zamestnanci sa nemusia učiť nové prostredie ani pamätať nové heslo.</p>
-          <div class="m365__list" style="margin-top:32px">
-            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-layers"/></svg></i><div><h3>Stavia na tom, čo už máte</h3><p>SharePoint, Teams a Outlook sú súčasťou Microsoft 365 pre školy.</p></div></div>
-            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-db"/></svg></i><div><h3>Dáta zostávajú vo vašej škole</h3><p>Záznamy aj dokumenty sú uložené v SharePointe vašej školy.</p></div></div>
-            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-login"/></svg></i><div><h3>Prihlásenie školským účtom</h3><p>Rovnako ako do Teams alebo Outlooku. Žiadne nové heslá.</p></div></div>
-            <div class="m365__item"><i><svg aria-hidden="true"><use href="#i-lock"/></svg></i><div><h3>Každý vidí len svoje</h3><p>Oprávnenia podľa role. Učiteľ nevidí faktúry, ekonóm nevidí dokumenty žiakov.</p></div></div>
-          </div>
-        </div>
-        <div class="stack reveal" data-delay="1" aria-hidden="true">
-          <div class="stack__layer stack__layer--hub"><small>Vaša agenda</small><b>Digitálny hub školy</b><div class="stack__chips"><span style="background:rgba(2,20,49,.1)">5 modulov</span><span style="background:rgba(2,20,49,.1)">schvaľovanie</span><span style="background:rgba(2,20,49,.1)">automatizácie</span></div></div>
-          <div class="stack__layer"><small>Formuláre a automatizácie</small><b>Skybow Solution Studio</b></div>
-          <div class="stack__layer"><small>Microsoft 365 vašej školy</small><b>Prostredie, ktoré poznáte</b><div class="stack__chips"><span>SharePoint</span><span>Teams</span><span>Outlook</span></div></div>
-          <p class="stack__note">Nič sa neinštaluje do počítačov. Hub otvoríte v prehliadači alebo ako kartu v Teams.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- Zriaďovateľ -->
     <section class="section" id="zriadovatel">
       <div class="container">
@@ -635,10 +766,6 @@
             <summary>Ako je to s ochranou osobných údajov?</summary>
             <p>Údaje zostávajú v Microsoft 365 školy a prístup k nim riadia oprávnenia podľa role. Podmienky spracúvania osobných údajov upravíme v zmluve pri nasadení.</p>
           </details>
-          <details>
-            <summary>Funguje hub aj v Teams?</summary>
-            <p>Áno. Hub otvoríte v prehliadači alebo ho pridáte ako kartu do Microsoft Teams.</p>
-          </details>
         </div>
       </div>
     </section>
@@ -713,7 +840,7 @@
         <a href="#kontakt">Kontakt</a>
         <a href="/ochrana-osobnych-udajov.html">Ochrana osobných údajov</a>
       </nav>
-      <p class="footer-copy">© <span data-year>2026</span> David Trebatický · Digitálny hub školy. Microsoft 365, SharePoint, Teams a Outlook sú ochranné známky spoločnosti Microsoft.</p>
+      <p class="footer-copy">© <span data-year>2026</span> David Trebatický · Digitálny hub školy. Microsoft 365, SharePoint, Teams, Outlook, Word a Copilot sú ochranné známky spoločnosti Microsoft.</p>
     </div>
   </footer>
 

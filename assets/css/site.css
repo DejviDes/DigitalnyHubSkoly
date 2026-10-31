@@ -237,12 +237,29 @@ h1, h2, h3, h4 {
 
 .hero__actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
 
-.hero__trust {
-  margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px 22px;
-  font-size: 14px; color: rgba(255, 255, 255, 0.7);
+.hero__apps { margin-top: 40px; }
+.hero__apps-label { display: block; font-size: 13px; color: rgba(255, 255, 255, 0.62); }
+.hero__apps ul { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.hero__apps a {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px 6px 9px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14);
+  font-family: var(--font-display); font-size: 14px; font-weight: 500; color: #fff;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
-.hero__trust li { display: inline-flex; align-items: center; gap: 8px; }
-.hero__trust svg { width: 16px; height: 16px; color: var(--cyan); flex: none; }
+.hero__apps a:hover { background: rgba(255, 255, 255, 0.14); border-color: rgba(255, 255, 255, 0.28); }
+.hero__apps .app-ico { width: 20px; height: 20px; }
+
+/* Oficiálne ikony aplikácií Microsoft 365 (assets/images/m365, Fluent brand icons z CDN Microsoftu).
+   --app je farba lišty v ukážke aplikácie. */
+.app-ico { flex: none; width: 44px; height: 44px; display: grid; place-items: center; }
+.app-ico img { width: 100%; height: 100%; }
+.app--sharepoint { --app: #0f7c80; }
+.app--teams { --app: #5b5fc7; }
+.app--outlook { --app: #0f6cbd; }
+.app--word { --app: #185abd; }
+.app--copilot { --app: linear-gradient(135deg, #2b88d8 0%, #7a5cf0 55%, #d9559f 100%); }
+.app--account { --app: #33415c; }
 
 /* Hub diagram */
 
@@ -328,7 +345,7 @@ h1, h2, h3, h4 {
 
 .section-head { max-width: 720px; margin-bottom: clamp(40px, 5vw, 64px); }
 .section-head--center { margin-inline: auto; text-align: center; }
-.section-head h2 { margin-top: 16px; font-size: clamp(30px, 3.8vw, 46px); }
+.section-head h2 { margin-top: 16px; font-size: clamp(30px, 3.8vw, 46px); text-wrap: balance; }
 .section-head p { margin-top: 18px; font-size: 18px; color: var(--muted); }
 .section--dark .section-head p { color: rgba(255, 255, 255, 0.72); }
 .section--dark .eyebrow { color: var(--cyan); }
@@ -544,34 +561,106 @@ h1, h2, h3, h4 {
 .role ul li { padding-left: 18px; position: relative; }
 .role ul li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 2px; border-radius: 2px; background: var(--cyan-600); }
 
-/* Microsoft 365 */
+/* Microsoft 365 – pavúk aplikácií */
 
-.m365 { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
-.m365__list { display: grid; gap: 14px; }
-.m365__item { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 20px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); }
-.m365__item i { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--blue); color: #fff; }
-.m365__item i svg { width: 22px; height: 22px; }
-.m365__item h3 { font-size: 17px; }
-.m365__item p { margin-top: 4px; font-size: 15px; color: var(--muted); }
+.section--eco {
+  background:
+    radial-gradient(760px 520px at 28% 62%, rgba(56, 189, 248, 0.12), transparent 70%),
+    var(--bg);
+}
+.eco { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
 
-.stack {
-  position: relative; padding: 28px; border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, var(--navy-900), var(--blue));
-  color: #fff; box-shadow: var(--shadow-lg); overflow: hidden;
+.eco__map { position: relative; width: 100%; max-width: 520px; margin-inline: auto; aspect-ratio: 1 / 1; }
+.eco__lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.eco__lines .ring { stroke: var(--blue-200); stroke-width: 1; fill: none; stroke-dasharray: 2 7; }
+.eco__lines .line { stroke: var(--blue-200); stroke-width: 1.5; fill: none; transition: stroke 0.3s ease, stroke-width 0.3s ease; }
+.eco__lines .line.is-active { stroke: var(--cyan); stroke-width: 3; }
+.eco__lines .pulse { fill: var(--blue-400); opacity: 0.45; transition: fill 0.3s ease, opacity 0.3s ease; }
+.eco__lines .pulse.is-active { fill: var(--cyan-600); opacity: 1; }
+
+.eco__core {
+  position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 28%;
+  background: linear-gradient(150deg, var(--blue), var(--navy-900));
+  box-shadow: 0 0 0 10px rgba(8, 63, 153, 0.06), 0 0 0 22px rgba(8, 63, 153, 0.035), 0 18px 48px rgba(8, 63, 153, 0.32);
+  display: grid; place-items: center;
 }
-.stack::after {
-  content: ""; position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.35), transparent 70%);
+.eco__core svg { width: 72%; height: 72%; }
+
+.eco__node {
+  position: absolute; transform: translate(-50%, -50%);
+  width: 104px; padding: 12px 6px 10px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--line); border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-display); font-size: 13px; font-weight: 500; line-height: 1.2; text-align: center;
+  color: var(--ink); cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
-.stack__layer { position: relative; z-index: 1; padding: 18px 20px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.06); }
-.stack__layer + .stack__layer { margin-top: 10px; }
-.stack__layer small { display: block; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); }
-.stack__layer b { display: block; margin-top: 4px; font-family: var(--font-display); font-weight: 500; font-size: 17px; }
-.stack__layer--hub { background: var(--cyan); border-color: var(--cyan); color: var(--navy-950); }
-.stack__layer--hub small { color: rgba(2, 20, 49, 0.7); }
-.stack__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.stack__chips span { padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.12); font-size: 13px; font-weight: 500; }
-.stack__note { position: relative; z-index: 1; margin-top: 16px; font-size: 14px; color: rgba(255, 255, 255, 0.72); }
+.eco__node:hover { border-color: var(--blue-200); box-shadow: var(--shadow); }
+.eco__node[aria-selected="true"] {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2), var(--shadow);
+  transform: translate(-50%, -50%) scale(1.07);
+}
+
+.eco__hint { margin-top: 12px; text-align: center; font-size: 14px; color: var(--muted); }
+
+.eco__panels { display: grid; }
+.eco__panel {
+  grid-area: 1 / 1;
+  padding: clamp(22px, 3vw, 32px); border-radius: var(--radius-lg);
+  background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow);
+  visibility: hidden; opacity: 0; transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+}
+.eco__panel.is-active { visibility: visible; opacity: 1; transform: none; transition: opacity 0.35s ease, transform 0.35s ease; }
+.eco__head { display: flex; align-items: center; gap: 14px; }
+.eco__head .app-ico { width: 48px; height: 48px; }
+.eco__head b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 20px; letter-spacing: -0.01em; }
+.eco__head small { display: block; font-size: 14px; color: var(--muted); }
+.eco__panel h3 { margin-top: 22px; font-size: clamp(20px, 2vw, 24px); }
+.eco__panel > p { margin-top: 10px; color: var(--muted); }
+.eco__panel .app { margin-top: 22px; }
+.eco__panel .app__bar { background: var(--app); }
+.app__bar-ico { flex: none; width: 24px; height: 24px; border-radius: 6px; background: #fff; display: grid; place-items: center; }
+.app__bar-ico img { width: 16px; height: 16px; }
+.eco__panel .meta { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+/* Drobné ukážky aplikácií v detaile */
+.tabs-ui { display: flex; gap: 18px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.tabs-ui span { padding: 2px 0 8px; }
+.tabs-ui .is-on { color: var(--ink); font-weight: 600; box-shadow: inset 0 -2px 0 #5b5fc7; }
+
+.mail-ui { display: grid; gap: 8px; }
+.mail-ui__from { display: flex; align-items: center; gap: 10px; }
+.mail-ui__from b { display: block; font-weight: 600; font-size: 13px; }
+.mail-ui__from small { display: block; color: var(--muted); font-size: 12px; }
+.mail-ui__avatar { width: 32px; height: 32px; border-radius: 9px; background: var(--blue); display: grid; place-items: center; flex: none; }
+.mail-ui__avatar svg { width: 76%; height: 76%; }
+.mail-ui__subject { font-family: var(--font-display); font-weight: 600; font-size: 14px; }
+.mail-ui p { color: var(--ink-2); }
+.mail-ui .ui-btn { background: #0f6cbd; }
+
+.doc-ui { display: grid; gap: 10px; padding: 14px; background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+.doc-ui__title { font-family: var(--font-display); font-weight: 600; font-size: 15px; text-align: center; }
+.doc-ui mark { background: var(--cyan-soft); color: inherit; padding: 0 3px; border-radius: 3px; }
+.doc-ui__note { color: var(--muted); font-size: 12px; }
+
+.chat-ui { gap: 10px; }
+.chat-ui p, .chat-ui ul { margin: 0; }
+.chat-ui__me { justify-self: end; max-width: 85%; padding: 8px 12px; border-radius: 12px 12px 4px 12px; background: var(--blue-100); }
+.chat-ui__ai { max-width: 92%; padding: 10px 12px; border-radius: 12px 12px 12px 4px; background: #fff; border: 1px solid var(--line); display: grid; gap: 6px; }
+.chat-ui__ai ul { padding-left: 18px; list-style: disc; }
+.chat-ui__src { display: inline-flex; align-items: center; gap: 6px; justify-self: start; padding: 3px 8px; border-radius: 6px; background: var(--bg-alt); color: var(--muted); font-size: 11px; }
+.chat-ui__src svg { width: 12px; height: 12px; flex: none; }
+
+.profile-ui { display: flex; align-items: center; gap: 10px; }
+.profile-ui b { display: block; font-weight: 600; font-size: 13px; }
+.profile-ui small { display: block; color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
+.profile-ui > span:last-child { min-width: 0; }
+.profile-ui__avatar { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--blue-400); color: #fff; font-size: 12px; font-weight: 700; }
 
 /* Zriaďovateľ */
 
@@ -816,7 +905,8 @@ h1, h2, h3, h4 {
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat:nth-child(2) { border-right: 0; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
-  .m365 { grid-template-columns: 1fr; }
+  .eco { grid-template-columns: 1fr; }
+  .eco__map { max-width: 460px; }
   .founder { grid-template-columns: 1fr; }
   .price { grid-template-columns: 1fr; }
   .price-note { grid-template-columns: auto 1fr; }
@@ -831,6 +921,9 @@ h1, h2, h3, h4 {
   .toast { width: 70%; padding: 10px 12px; font-size: 13px; }
   .toast small { display: none; }
   .hub__node { font-size: 12px; padding: 6px 10px 6px 6px; gap: 6px; }
+  .eco__node { width: 78px; padding: 8px 4px; gap: 6px; font-size: 11px; border-radius: 14px; }
+  .eco__node .app-ico { width: 32px; height: 32px; }
+  .hero__apps a { font-size: 13px; }
   .hub__node i { width: 22px; height: 22px; }
   .hub__node i svg { width: 13px; height: 13px; }
   .tabs { grid-template-columns: repeat(5, minmax(76px, 1fr)); margin-inline: calc(-1 * var(--gutter)); padding: 0 var(--gutter) 6px; }
