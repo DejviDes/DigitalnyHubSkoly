@@ -25,7 +25,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/site.css" />
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    document.documentElement.classList.add("js");
+    // Turnstile ukáže políčko len vtedy, keď Cloudflare potrebuje potvrdenie od človeka.
+    // Musí existovať skôr, ako sa načíta skript Turnstile.
+    window.hubCaptchaShow = function () {
+      document.querySelectorAll(".cf-turnstile").forEach(function (el) { el.classList.add("is-shown"); });
+    };
+  </script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -816,7 +823,7 @@
             <input id="f-website" name="companyWebsite" type="text" tabindex="-1" autocomplete="off" />
           </div>
           <input type="hidden" name="formStartTs" data-form-start />
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAADEPjV9phobaMViE" data-language="sk" data-theme="light"></div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADEPjV9phobaMViE" data-language="sk" data-theme="light" data-size="flexible" data-appearance="interaction-only" data-before-interactive-callback="hubCaptchaShow"></div>
           <div class="form__foot">
             <button class="btn btn--blue" type="submit">Odoslať žiadosť o ukážku <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
             <p class="form__status" role="status" aria-live="polite" data-form-status></p>

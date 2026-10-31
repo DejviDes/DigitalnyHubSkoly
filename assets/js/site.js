@@ -241,6 +241,16 @@
     }
   };
 
+  // Overenie beží na pozadí; keď niekto odošle hneď po načítaní, chvíľu počkáme na token
+  const waitForToken = async () => {
+    for (let i = 0; i < 24; i++) {
+      const token = String(new FormData(form).get("cf-turnstile-response") || "").trim();
+      if (token) return token;
+      await new Promise((resolve) => setTimeout(resolve, 250));
+    }
+    return "";
+  };
+
   const cooldownLeft = () => {
     try {
       const last = Number(localStorage.getItem(COOLDOWN_KEY));
@@ -275,9 +285,13 @@
       return;
     }
 
-    const turnstileToken = String(data.get("cf-turnstile-response") || "").trim();
+    let turnstileToken = String(data.get("cf-turnstile-response") || "").trim();
     if (!turnstileToken) {
-      setStatus("Bezpečnostná kontrola ešte neprebehla. Počkajte chvíľu a skúste to znova.", "is-error");
+      setStatus("Overujem, že formulár neposiela robot…", "is-loading");
+      turnstileToken = await waitForToken();
+    }
+    if (!turnstileToken) {
+      setStatus("Bezpečnostná kontrola ešte neprebehla. Ak sa nad tlačidlom zobrazilo overenie, potvrďte ho a odošlite znova.", "is-error");
       return;
     }
 
